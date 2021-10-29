@@ -7,6 +7,11 @@ class RequestMain2 extends StatefulWidget {
 }
 
 class _RequestMainState2 extends State<RequestMain2> {
+
+
+
+
+
   int _currentpos = 0;
 
   Widget _buildContainer2() {
@@ -73,7 +78,7 @@ class _RequestMainState2 extends State<RequestMain2> {
                   padding: const EdgeInsets.only(top: 50, left: 200),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(RouteManager.donationOptions);
+                      Navigator.of(context).pushNamed(RouteManager.nonFoodItems);
                     },
                     child: Text(
                       'Assist',

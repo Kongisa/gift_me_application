@@ -74,7 +74,7 @@ class _RequestMainState extends State<RequestMain> {
                   padding: const EdgeInsets.only(top: 50, left: 200),
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed(RouteManager.donationOptions);
+                      Navigator.of(context).pushNamed(RouteManager.foodItems);
                     },
                     child: Text(
                       'Assist',

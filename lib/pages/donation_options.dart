@@ -7,6 +7,7 @@ class DonationOptions extends StatefulWidget {
 }
 
 class _DonationOptionsState extends State<DonationOptions> {
+
   Widget _buildContainment2() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

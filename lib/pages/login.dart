@@ -141,7 +141,7 @@ class _LoginState extends State<Login> {
             margin: EdgeInsets.only(bottom: 20),
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(RouteManager.mainPage);
+                  Navigator.of(context).pushNamed(RouteManager.splashScreen2);
                 },
                 child: Text(
                   'Login',

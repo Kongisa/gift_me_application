@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     print('Building MyApp');
     return MaterialApp(
-      initialRoute: RouteManager.loginPage,
+      initialRoute: RouteManager.splashScreen,
       onGenerateRoute: RouteManager.generateRoute,
       
     );
