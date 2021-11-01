@@ -276,26 +276,16 @@ class _RequestMainState extends State<RequestMain> {
                   ],
                   onTap: (index) {
                     setState(() {
-
-                      if(index == 0)
-                      {
+                      if (index == 0) {
+                        Navigator.of(context).pushNamed(RouteManager.mainPage);
+                      } else if (index == 2) {
                         Navigator.of(context)
-                                  .pushNamed(RouteManager.mainPage);
-                      }
-                      else if(index == 2)
-                      {
+                            .pushNamed(RouteManager.donationOptions);
+                      } else if (index == 3) {
+                        Navigator.of(context).pushNamed(RouteManager.profile);
+                      } else {
                         Navigator.of(context)
-                                  .pushNamed(RouteManager.donationOptions);
-                      }
-                      else if(index == 3)
-                      {
-                        Navigator.of(context)
-                                  .pushNamed(RouteManager.profile);
-                      }
-                      else{
-                        Navigator.of(context)
-                                  .pushNamed(RouteManager.requestMain2);
-
+                            .pushNamed(RouteManager.requestMain2);
                       }
                       _currentpos = index;
                     });

@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class DonationOptions extends StatefulWidget {
   _DonationOptionsState createState() => _DonationOptionsState();
 }
 
 class _DonationOptionsState extends State<DonationOptions> {
-
   Widget _buildContainment2() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -19,16 +19,18 @@ class _DonationOptionsState extends State<DonationOptions> {
                 height: 150,
                 width: 150,
                 decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.blue.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0.0, 5), // changes position of shadow
-                      ),
-                    ],
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                  boxShadow: [
+                    BoxShadow(
+                      //Importing the boxShadowColor from AppColors
+                      color: AppColors.boxShadowColourBlueWithOpacity,
+                      spreadRadius: 2,
+                      blurRadius: 7,
+                      offset: Offset(0.0, 5), // changes position of shadow
+                    ),
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,31 +52,34 @@ class _DonationOptionsState extends State<DonationOptions> {
         Padding(
           padding: const EdgeInsets.only(top: 180),
           child: InkWell(
-            child: Container(
-              height: 150,
-              width: 150,
-              decoration: BoxDecoration(
+              child: Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.blue.withOpacity(0.5),
+                      //importing from AppColors to set the boxShadowColor
+                      color: AppColors.boxShadowColourBlueWithOpacity,
                       spreadRadius: 2,
                       blurRadius: 7,
                       offset: Offset(0.0, 5), // changes position of shadow
                     ),
                   ],
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Image.asset('assets/images/donate3.png')],
+                  //importing the white BoxDecoration
+                  color: AppColors.boxDecorationWhite,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Image.asset('assets/images/donate3.png')],
+                ),
               ),
-            ),
-            onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.recipient);
-              }
-          ),
-          
+              onTap: () {
+                Navigator.of(context).pushNamed(RouteManager.donor);
+              }),
         )
       ],
     );
@@ -91,7 +96,8 @@ class _DonationOptionsState extends State<DonationOptions> {
               width: MediaQuery.of(context).size.width,
               child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      //importing the blue boxDecoration color
+                      color: AppColors.boxDecorationBlue,
                       borderRadius: BorderRadius.only(
                         bottomLeft: const Radius.circular(40),
                         bottomRight: const Radius.circular(40),
@@ -101,7 +107,9 @@ class _DonationOptionsState extends State<DonationOptions> {
                 padding: EdgeInsets.only(left: 115, top: 20),
                 child: Text(
                   'Donations',
-                  style: TextStyle(color: Colors.white, fontSize: 35),
+                  style:
+                      //importing the white text color
+                      TextStyle(color: AppColors.whiteTextColor, fontSize: 35),
                 )),
             Padding(
               padding: const EdgeInsets.only(right: 10, top: 20),

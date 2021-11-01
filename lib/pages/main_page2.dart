@@ -21,7 +21,10 @@ class _MainPageState2 extends State<MainPage2> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.7,
             width: MediaQuery.of(context).size.width * 0.9,
-            decoration: BoxDecoration(color: Colors.grey[300]),
+            decoration: BoxDecoration(
+              //importing of the grey BoxDecoration
+              color: AppColors.boxDecorationGrey300,
+            ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -101,7 +104,7 @@ class _MainPageState2 extends State<MainPage2> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -143,7 +146,7 @@ class _MainPageState2 extends State<MainPage2> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -185,7 +188,7 @@ class _MainPageState2 extends State<MainPage2> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -280,7 +283,11 @@ class _MainPageState2 extends State<MainPage2> {
             )),
         Text(
           'Other Items',
-          style: TextStyle(color: Colors.white, fontSize: 25),
+          style: TextStyle(
+            //importing the white text colour
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+          ),
         ),
         SizedBox(width: 50),
         Icon(
@@ -311,7 +318,8 @@ class _MainPageState2 extends State<MainPage2> {
           // ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              //improving the blue BoxDecoration
+              color: AppColors.boxDecorationBlue,
             ),
           ),
         ),
@@ -323,7 +331,8 @@ class _MainPageState2 extends State<MainPage2> {
                 width: MediaQuery.of(context).size.width,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      //importing the blue BoxDecoration
+                      color: AppColors.boxDecorationBlue,
                       borderRadius: BorderRadius.only(
                         bottomLeft: const Radius.circular(40),
                         bottomRight: const Radius.circular(40),
@@ -365,26 +374,27 @@ class _MainPageState2 extends State<MainPage2> {
                 child: BottomNavigationBar(
                   currentIndex: _currentpos,
                   items: [
+                    //All of the BottomNavigationBarItems will import the blue color
                     BottomNavigationBarItem(
                         icon: Icon(Icons.home),
                         label: "Home",
-                        backgroundColor: Colors.blue),
+                        backgroundColor: AppColors.bottomNavItemBgColorblue),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.search),
                         label: "Search",
-                        backgroundColor: Colors.blue),
+                        backgroundColor: AppColors.bottomNavItemBgColorblue),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.add_box, size: 30),
                         label: "Donations",
-                        backgroundColor: Colors.blue),
+                        backgroundColor: AppColors.bottomNavItemBgColorblue),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.person),
                         label: "Profile",
-                        backgroundColor: Colors.blue),
+                        backgroundColor: AppColors.bottomNavItemBgColorblue),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.textsms_outlined),
                         label: "Forum",
-                        backgroundColor: Colors.blue)
+                        backgroundColor: AppColors.bottomNavItemBgColorblue)
                   ],
                   onTap: (index) {
                     setState(() {
