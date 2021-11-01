@@ -77,6 +77,7 @@ class _GetItemState2 extends State<GetItem2> {
   Widget _buildRating() {
     return Row(
       children: [
+        //all of the icons import the yellowicon color
         Icon(
           Icons.star_outline,
           size: 30,
