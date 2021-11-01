@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -22,21 +23,20 @@ class _SignUpState extends State<SignUp> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.6,
             width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: Colors.white),
+            //importing the white BoxDecoration
+            decoration: BoxDecoration(color: AppColors.boxDecorationWhite),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text("Details",
-                          style: TextStyle(
-                            fontSize: 25,
-                          )),
+                      style: TextStyle(
+                        fontSize: 25,
+                      )),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      
-                    ],
+                    children: [],
                   ),
                   SizedBox(height: 30),
                   _buildNamer(),
@@ -51,7 +51,6 @@ class _SignUpState extends State<SignUp> {
                   _buildPassworder(),
                   SizedBox(height: 20),
                   _buildPassworder2(),
-                  
                 ],
               ),
             ),
@@ -68,7 +67,11 @@ class _SignUpState extends State<SignUp> {
         Text(
           'Sign Up',
           style: TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
         )
       ],
     );
@@ -90,11 +93,13 @@ class _SignUpState extends State<SignUp> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
-            hintText: "Name",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
+          hintText: "Name",
+          //importing the black hintStyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -110,11 +115,13 @@ class _SignUpState extends State<SignUp> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
-            hintText: "Surname",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
+          hintText: "Surname",
+          //importing the black hintStyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -130,11 +137,13 @@ class _SignUpState extends State<SignUp> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
-            hintText: "Email",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
+          hintText: "Email",
+          //imports the black hintStyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -162,8 +171,10 @@ class _SignUpState extends State<SignUp> {
                   data: ThemeData(unselectedWidgetColor: Colors.blue),
                   child: Checkbox(
                     value: isRememberMe,
-                    checkColor: Colors.white,
-                    activeColor: Colors.blue,
+                    //import a check colour of white
+                    checkColor: AppColors.checkColorWhite,
+                    //import an active status colour of blue
+                    activeColor: AppColors.activeStatusColBlue,
                     onChanged: (value) {
                       setState(() {
                         isRememberMe = value!;
@@ -179,8 +190,10 @@ class _SignUpState extends State<SignUp> {
                 data: ThemeData(unselectedWidgetColor: Colors.blue),
                 child: Checkbox(
                   value: isRememberMe,
-                  checkColor: Colors.white,
-                  activeColor: Colors.blue,
+                  //imports a check colour of white
+                  checkColor: AppColors.checkColorWhite,
+                  //imports an active sttaus color of blue
+                  activeColor: AppColors.activeStatusColBlue,
                   onChanged: (value) {
                     setState(() {
                       isRememberMe = value!;
@@ -208,14 +221,16 @@ class _SignUpState extends State<SignUp> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
-            suffixIcon: InkWell(
-                onTap: _togglePasswordView,
-                child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
-            hintText: "Password",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
+          suffixIcon: InkWell(
+              onTap: _togglePasswordView,
+              child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
+          hintText: "Password",
+          //imports a black hintStyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -232,37 +247,37 @@ class _SignUpState extends State<SignUp> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
-            suffixIcon: InkWell(
-                onTap: _togglePasswordView,
-                child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
-            hintText: "Password Confirm",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
+          suffixIcon: InkWell(
+              onTap: _togglePasswordView,
+              child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
+          hintText: "Password Confirm",
+          //imports a hintStyle colour of black
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
 
-   Widget _buildLoginButton() {
+  Widget _buildLoginButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 45,
-          width: 160,
-          margin: EdgeInsets.only(bottom: 20),
-          child:ElevatedButton(
+            height: 45,
+            width: 160,
+            margin: EdgeInsets.only(bottom: 20),
+            child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed(RouteManager.loginPage);
                 },
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.white, letterSpacing: 1.5),
-                ))
-        )
+                )))
       ],
-
     );
   }
 
@@ -281,13 +296,11 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               TextSpan(
-                text: ' Sign In',
-                style: TextStyle(
-                color: Colors.lightBlue,
-                fontSize: 18,
-                fontWeight: FontWeight.bold
-                )
-              ),
+                  text: ' Sign In',
+                  style: TextStyle(
+                      color: Colors.lightBlue,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold)),
             ],
           ),
         ));
@@ -301,8 +314,6 @@ class _SignUpState extends State<SignUp> {
       endIndent: 5,
     );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -338,7 +349,8 @@ class _SignUpState extends State<SignUp> {
       ),
     ));
   }
-   void _togglePasswordView() {
+
+  void _togglePasswordView() {
     isHiddenPassword = !isHiddenPassword;
 
     setState(() {});

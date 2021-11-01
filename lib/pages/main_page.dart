@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/pages/navigation_drawer_widget.dart';
 import 'package:project_gift_me/routes/routes.dart';
-
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
@@ -19,7 +19,11 @@ class _MainPageState extends State<MainPage> {
         Text(
           'Welcome to Gift Me',
           style: TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
         )
       ],
     );
@@ -36,7 +40,8 @@ class _MainPageState extends State<MainPage> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.7,
             width: MediaQuery.of(context).size.width * 0.9,
-            decoration: BoxDecoration(color: Colors.grey[300]),
+            //importing the grey boxDecoration colour
+            decoration: BoxDecoration(color: AppColors.boxDecorationGrey300),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +75,7 @@ class _MainPageState extends State<MainPage> {
           child: Container(
             height: 150,
             width: 350,
-            color: Colors.blue[300],
+            color: AppColors.containerColourBlue300,
             child: Row(
               children: [
                 Icon(

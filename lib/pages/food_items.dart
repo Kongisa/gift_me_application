@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class FoodItems extends StatefulWidget {
   @override
@@ -25,7 +26,10 @@ class FoodItemsState extends State<FoodItems> {
           child: Text(
             'Food Items',
             style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+              color: AppColors.whiteTextColor,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],
@@ -81,7 +85,8 @@ class FoodItemsState extends State<FoodItems> {
             height: 150,
             width: 150,
             decoration: BoxDecoration(
-                color: Colors.white,
+                //importing the white boxShadowColour
+                color: AppColors.boxShadowColourWhite,
                 border: Border.all(color: Colors.blue, width: 2),
                 borderRadius: BorderRadius.all(Radius.circular(500))),
             child: SingleChildScrollView(
@@ -115,11 +120,13 @@ class FoodItemsState extends State<FoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
-            hintText: "Item Name",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
+          hintText: "Item Name",
+          //importing the hintStyle colour
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -135,11 +142,13 @@ class FoodItemsState extends State<FoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
-            hintText: "Description",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
+          hintText: "Description",
+          //importing the hintStyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -155,11 +164,13 @@ class FoodItemsState extends State<FoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
-            hintText: "Drop Off Time",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
+          hintText: "Drop Off Time",
+          //importing the hintStyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -179,7 +190,8 @@ class FoodItemsState extends State<FoodItems> {
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(Icons.hourglass_bottom, color: Color(0xFF1F68AC)),
             hintText: "Use Before",
-            hintStyle: TextStyle(color: Colors.black38)),
+            //importing the hintStyleColor
+            hintStyle: TextStyle(color: AppColors.hintStyleColour)),
       ),
     );
   }
@@ -204,22 +216,40 @@ class FoodItemsState extends State<FoodItems> {
   Widget _buildRating() {
     return Row(
       children: [
+        //All of the Icons import the yellowIconsColor from AppColors
         Icon(
           Icons.star_outline,
           size: 30,
-          color: Colors.yellow,
+          color: AppColors.yellowIconsColor,
         ),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
       ],
     );
   }
 
   Widget _buildDivider() {
     return Divider(
-      color: Colors.grey,
+      //importing the grey Divider color
+      color: AppColors.dividerColorGrey,
       thickness: 1.2,
       indent: 5,
       endIndent: 5,
@@ -234,15 +264,23 @@ class FoodItemsState extends State<FoodItems> {
             height: 45,
             width: 160,
             margin: EdgeInsets.only(bottom: 20),
-            child: RaisedButton(
-                elevation: 5.0,
-                color: Colors.blue,
+            child: ElevatedButton(
+                //the button has an elevation of 5.0,
+                //color: Colors.blue,
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  elevation: 5.0,
+                ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(RouteManager.mainPage);
                 },
                 child: Text(
                   'Submit',
-                  style: TextStyle(color: Colors.white, letterSpacing: 1.5),
+                  style: TextStyle(
+                    //importing the white text color
+                    color: AppColors.whiteTextColor,
+                    letterSpacing: 1.5,
+                  ),
                 )))
       ],
     );
@@ -252,7 +290,8 @@ class FoodItemsState extends State<FoodItems> {
     return Text(
       'Quality',
       style: TextStyle(
-        color: Colors.grey,
+        //importing the grey text colour
+        color: AppColors.greyTextColour,
         fontSize: 16,
       ),
     );
@@ -264,7 +303,8 @@ class FoodItemsState extends State<FoodItems> {
       child: Text(
         'Anonymous',
         style: TextStyle(
-          color: Colors.grey,
+          //importing the grey text colour
+          color: AppColors.greyTextColour,
           fontSize: 16,
         ),
       ),
@@ -276,8 +316,10 @@ class FoodItemsState extends State<FoodItems> {
       padding: EdgeInsets.only(right: 1),
       child: Checkbox(
         value: isRememberMe,
-        checkColor: Colors.white,
-        activeColor: Colors.blue,
+        //importing the white check colour
+        checkColor: AppColors.checkColorWhite,
+        //importing the blue active status colour
+        activeColor: AppColors.activeStatusColBlue,
         onChanged: (value) {
           setState(() {
             isRememberMe = value!;
@@ -297,7 +339,8 @@ class FoodItemsState extends State<FoodItems> {
           width: MediaQuery.of(context).size.width,
           child: Container(
               decoration: BoxDecoration(
-                  color: Colors.blue,
+                  //importing the Blue boxshadow with an opacity
+                  color: AppColors.boxShadowColourBlueNoOpacity,
                   borderRadius: BorderRadius.only(
                     bottomLeft: const Radius.circular(40),
                     bottomRight: const Radius.circular(40),
@@ -307,7 +350,11 @@ class FoodItemsState extends State<FoodItems> {
             padding: EdgeInsets.only(left: 140, top: 40),
             child: Text(
               'Food Items',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              style: TextStyle(
+                //applying the white text colour
+                color: AppColors.whiteTextColor,
+                fontSize: 25,
+              ),
             )),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -362,7 +409,10 @@ class FoodItemsState extends State<FoodItems> {
         padding: EdgeInsets.only(left: 12),
         child: Text(
           item,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
         ),
       ),
     );

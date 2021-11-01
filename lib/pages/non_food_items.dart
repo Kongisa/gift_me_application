@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class NonFoodItems extends StatefulWidget {
   @override
@@ -25,7 +26,11 @@ class NonFoodItemsState extends State<NonFoodItems> {
           child: Text(
             'Food Items',
             style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+              //importing the white text color
+              color: AppColors.whiteTextColor,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         )
       ],
@@ -81,7 +86,8 @@ class NonFoodItemsState extends State<NonFoodItems> {
             height: 150,
             width: 150,
             decoration: BoxDecoration(
-                color: Colors.white,
+                //importing the white boxDecoration colour
+                color: AppColors.boxDecorationWhite,
                 border: Border.all(color: Colors.blue, width: 2),
                 borderRadius: BorderRadius.all(Radius.circular(500))),
             child: SingleChildScrollView(
@@ -115,11 +121,13 @@ class NonFoodItemsState extends State<NonFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
-            hintText: "Item Name",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
+          hintText: "Item Name",
+          //importing the black hintStyle
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -135,11 +143,13 @@ class NonFoodItemsState extends State<NonFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
-            hintText: "Description",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
+          hintText: "Description",
+          //importing the black hintStyle colour
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -159,7 +169,8 @@ class NonFoodItemsState extends State<NonFoodItems> {
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
             hintText: "Drop Off Time",
-            hintStyle: TextStyle(color: Colors.black38)),
+            //importing the black hintStyleColor
+            hintStyle: TextStyle(color: AppColors.hintStyleColour)),
       ),
     );
   }
@@ -204,22 +215,40 @@ class NonFoodItemsState extends State<NonFoodItems> {
   Widget _buildRating() {
     return Row(
       children: [
+        //all of the Icons will import the yellowIconColor
         Icon(
           Icons.star_outline,
           size: 30,
-          color: Colors.yellow,
+          color: AppColors.yellowIconsColor,
         ),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
       ],
     );
   }
 
   Widget _buildDivider() {
     return Divider(
-      color: Colors.grey,
+      //importing the grey divider color
+      color: AppColors.dividerColorGrey,
       thickness: 1.2,
       indent: 5,
       endIndent: 5,
@@ -234,15 +263,24 @@ class NonFoodItemsState extends State<NonFoodItems> {
             height: 45,
             width: 160,
             margin: EdgeInsets.only(bottom: 20),
-            child: RaisedButton(
-                elevation: 5.0,
-                color: Colors.blue,
+            child: ElevatedButton(
+                //elevation: 5.0,
+                //color: Colors.blue,
+                style: ElevatedButton.styleFrom(
+                  elevation: 5.0,
+                  //importing the ElevatedButton colour
+                  primary: AppColors.eButtonColBlue,
+                ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(RouteManager.mainPage);
                 },
                 child: Text(
                   'Submit',
-                  style: TextStyle(color: Colors.white, letterSpacing: 1.5),
+                  style: TextStyle(
+                    //importing the white Icon colour
+                    color: AppColors.whiteTextColor,
+                    letterSpacing: 1.5,
+                  ),
                 )))
       ],
     );
@@ -252,7 +290,8 @@ class NonFoodItemsState extends State<NonFoodItems> {
     return Text(
       'Condition',
       style: TextStyle(
-        color: Colors.grey,
+        //importing the grey text colour
+        color: AppColors.greyTextColour,
         fontSize: 16,
       ),
     );
@@ -276,8 +315,10 @@ class NonFoodItemsState extends State<NonFoodItems> {
       padding: EdgeInsets.only(right: 1),
       child: Checkbox(
         value: isRememberMe,
-        checkColor: Colors.white,
-        activeColor: Colors.blue,
+        //importing the white check colour
+        checkColor: AppColors.checkColorWhite,
+        //importing the active status colour of blue
+        activeColor: AppColors.activeStatusColBlue,
         onChanged: (value) {
           setState(() {
             isRememberMe = value!;
@@ -297,7 +338,8 @@ class NonFoodItemsState extends State<NonFoodItems> {
           width: MediaQuery.of(context).size.width,
           child: Container(
               decoration: BoxDecoration(
-                  color: Colors.blue,
+                  //importing a box decoration colour of blue
+                  color: AppColors.boxDecorationBlue,
                   borderRadius: BorderRadius.only(
                     bottomLeft: const Radius.circular(40),
                     bottomRight: const Radius.circular(40),
@@ -307,7 +349,11 @@ class NonFoodItemsState extends State<NonFoodItems> {
             padding: EdgeInsets.only(left: 140, top: 40),
             child: Text(
               'Other Items',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              style: TextStyle(
+                //importing the white text color
+                color: AppColors.whiteTextColor,
+                fontSize: 25,
+              ),
             )),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -342,7 +388,6 @@ class NonFoodItemsState extends State<NonFoodItems> {
             SizedBox(height: 20),
             _buildNamer3(),
             SizedBox(height: 20),
-           
             Row(
               children: [_buildCheckBox(), _buildText2()],
             ),

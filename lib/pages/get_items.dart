@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class GetItem extends StatefulWidget {
   _GetItemState createState() => _GetItemState();
@@ -16,7 +17,10 @@ class _GetItemState extends State<GetItem> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.5,
             width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(
+              //importing the white BoxDecoration
+              color: AppColors.boxDecorationWhite,
+            ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -51,18 +55,19 @@ class _GetItemState extends State<GetItem> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 10,top: 180),
+                    padding: const EdgeInsets.only(right: 10, top: 180),
                     child: Text(
-                        'Quality:   ',
-                        style: TextStyle(fontSize: 15),
-                      ),
+                      'Quality:   ',
+                      style: TextStyle(fontSize: 15),
+                    ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 80),
                     child: _buildRating(),
                   ),
-                  
                 ],
               ),
             ),
@@ -75,11 +80,32 @@ class _GetItemState extends State<GetItem> {
   Widget _buildRating() {
     return Row(
       children: [
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow,),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
+        //The icons all import the yellowIconsColor
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
       ],
     );
   }
@@ -94,16 +120,20 @@ class _GetItemState extends State<GetItem> {
             height: 150,
             width: 150,
             decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
+              boxShadow: [
+                BoxShadow(
+                  //the BoxShadow imports the boxShadowColourBlueWithOpacity
+                  color: AppColors.boxShadowColourBlueWithOpacity,
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0.0, 5), // changes position of shadow
+                ),
+              ],
+              color: Colors.white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
             child: _buildImage(),
           ),
         )
@@ -129,7 +159,8 @@ class _GetItemState extends State<GetItem> {
               width: MediaQuery.of(context).size.width,
               child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      //import of the blue BoxDecoration
+                      color: AppColors.boxDecorationBlue,
                       borderRadius: BorderRadius.only(
                         bottomLeft: const Radius.circular(40),
                         bottomRight: const Radius.circular(40),
@@ -139,7 +170,8 @@ class _GetItemState extends State<GetItem> {
                 padding: EdgeInsets.only(left: 165, top: 20),
                 child: Text(
                   'Title',
-                  style: TextStyle(color: Colors.white, fontSize: 35),
+                  style:
+                      TextStyle(color: AppColors.whiteTextColor, fontSize: 35),
                 )),
             Padding(
               padding: const EdgeInsets.only(right: 10, bottom: 530),
@@ -155,10 +187,10 @@ class _GetItemState extends State<GetItem> {
                 onPressed: () {},
                 child: Text('Request'),
                 style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(120, 40),),
+                  fixedSize: const Size(120, 40),
+                ),
               ),
             )
-
           ],
         ),
       ),

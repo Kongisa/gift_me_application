@@ -56,4 +56,7 @@ class AppColors {
 
   //splash color white
   static final splashColorWhite = Colors.white;
+
+  //ElevatedButton color
+  static final eButtonColBlue = Colors.blue;
 }
