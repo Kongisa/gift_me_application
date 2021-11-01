@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/pages/navigation_drawer_widget.dart';
 import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class RequestMain extends StatefulWidget {
   _RequestMainState createState() => _RequestMainState();
@@ -28,13 +29,15 @@ class _RequestMainState extends State<RequestMain> {
               border: Border.all(color: Colors.green, width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.blue.withOpacity(0.5),
+                  //importing the boxShadowColourBlueWithOpacity
+                  color: AppColors.boxShadowColourBlueWithOpacity,
                   spreadRadius: 100,
                   blurRadius: 7,
                   offset: Offset(6.0, 55), // changes position of shadow
                 ),
               ],
-              color: Colors.white,
+              //importing the boxDecoration color
+              color: AppColors.boxDecorationWhite,
             ),
             child: Column(
               children: [
@@ -44,7 +47,12 @@ class _RequestMainState extends State<RequestMain> {
                   color: Colors.green,
                   child: Row(
                     children: [
-                      Icon(Icons.person, size: 50, color: Colors.white),
+                      Icon(
+                        Icons.person,
+                        size: 50,
+                        //importing the white Icon colour
+                        color: AppColors.whiteIconColor,
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(top: 25),
                         child: Column(
@@ -166,13 +174,15 @@ class _RequestMainState extends State<RequestMain> {
               border: Border.all(color: Colors.blue, width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.blue.withOpacity(0.5),
+                  //importing the blue boxshadow colour with opacity
+                  color: AppColors.boxShadowColourBlueWithOpacity,
                   spreadRadius: 100,
                   blurRadius: 7,
                   offset: Offset(6.0, 55), // changes position of shadow
                 ),
               ],
-              color: Colors.white,
+              //importing the white box decoration
+              color: AppColors.boxDecorationWhite,
             ),
             child: Column(
               children: [
@@ -182,7 +192,12 @@ class _RequestMainState extends State<RequestMain> {
                   color: Colors.blue,
                   child: Row(
                     children: [
-                      Icon(Icons.person, size: 50, color: Colors.white),
+                      Icon(
+                        Icons.person,
+                        size: 50,
+                        //applying the white Icon color
+                        color: AppColors.whiteIconColor,
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(top: 25),
                         child: Column(
@@ -210,7 +225,11 @@ class _RequestMainState extends State<RequestMain> {
         Text(
           'Welcome to Gift Me',
           style: TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
         )
       ],
     );
@@ -227,7 +246,10 @@ class _RequestMainState extends State<RequestMain> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.7,
             width: MediaQuery.of(context).size.width * 0.9,
-            decoration: BoxDecoration(color: Colors.grey[300]),
+            decoration: BoxDecoration(
+              //importing the grey boxDecoration
+              color: AppColors.boxDecorationGrey300,
+            ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -260,7 +282,7 @@ class _RequestMainState extends State<RequestMain> {
       child: Container(
         height: 180,
         width: 350,
-        color: Colors.blue[300],
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Column(
@@ -484,22 +506,29 @@ class _RequestMainState extends State<RequestMain> {
           onPressed: () {
             _buildDrawer();
           },
-          splashColor: Colors.white,
+          //importing the white splash color
+          splashColor: AppColors.splashColorWhite,
           icon: Icon(
             Icons.menu,
             size: 40,
-            color: Colors.white,
+            //importing the white Icon color
+            color: AppColors.whiteIconColor,
           ),
         ),
         SizedBox(width: 80),
         Text(
           "Gift Me",
-          style: TextStyle(fontSize: 40, color: Colors.white),
+          style: TextStyle(
+            fontSize: 40,
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+          ),
         ),
         SizedBox(width: 80),
         Icon(
           Icons.settings,
-          color: Colors.white,
+          //importing the white Icon color
+          color: AppColors.whiteIconColor,
           size: 40,
         ),
 
@@ -523,7 +552,8 @@ class _RequestMainState extends State<RequestMain> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.white,
+                  //importing the white boxshadow colour
+                  color: AppColors.boxShadowColourWhite,
                   spreadRadius: 4,
                 )
               ],
@@ -540,22 +570,28 @@ class _RequestMainState extends State<RequestMain> {
         SizedBox(width: 25),
         Text(
           'Food Items',
-          style: TextStyle(color: Colors.white, fontSize: 25),
+          style: TextStyle(
+            //applying the white text color
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+          ),
         ),
         SizedBox(width: 15),
-        FlatButton(
+        TextButton(
             onPressed: () {
               Navigator.of(context).pushNamed(RouteManager.requestMain2);
             },
             child: Text(
               'Other Items',
-              style: TextStyle(color: Colors.black, fontSize: 20),
+              //importing the black text color
+              style: TextStyle(color: AppColors.blackTextColor, fontSize: 20),
             )),
         SizedBox(width: 35),
         Icon(
           Icons.sort,
           size: 20,
-          color: Colors.white,
+          //importing the white icon color
+          color: AppColors.whiteIconColor,
         )
       ],
     );
@@ -580,7 +616,8 @@ class _RequestMainState extends State<RequestMain> {
           // ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
-              color: Colors.green,
+              //importing the green boxDecoration
+              color: AppColors.boxDecorationGreen,
             ),
           ),
         ),
@@ -592,7 +629,8 @@ class _RequestMainState extends State<RequestMain> {
                 width: MediaQuery.of(context).size.width,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.green,
+                      //importing the green boxDecoration
+                      color: AppColors.boxDecorationGreen,
                       borderRadius: BorderRadius.only(
                         bottomLeft: const Radius.circular(40),
                         bottomRight: const Radius.circular(40),
@@ -614,15 +652,18 @@ class _RequestMainState extends State<RequestMain> {
                           Icons.arrow_left,
                           color: Colors.blue,
                         ),
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Navigator.of(context)
                                   .pushNamed(RouteManager.mainPage);
                             },
                             child: Text(
                               'Donations',
-                              style:
-                                  TextStyle(color: Colors.blue, fontSize: 15),
+                              style: TextStyle(
+                                //importing the blue text color
+                                color: AppColors.blueTextColor,
+                                fontSize: 15,
+                              ),
                             )),
                       ],
                     ),
@@ -634,26 +675,28 @@ class _RequestMainState extends State<RequestMain> {
                 child: BottomNavigationBar(
                   currentIndex: _currentpos,
                   items: [
+                    //All of the BottomnavigationBarItems import the green background colour
+                    //This code can be further optimised by use of a custom widget
                     BottomNavigationBarItem(
                         icon: Icon(Icons.home),
                         label: "Home",
-                        backgroundColor: Colors.green),
+                        backgroundColor: AppColors.bottomNavItemBgColorGreen),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.search),
                         label: "Search",
-                        backgroundColor: Colors.green),
+                        backgroundColor: AppColors.bottomNavItemBgColorGreen),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.add_box, size: 30),
                         label: "Donations",
-                        backgroundColor: Colors.green),
+                        backgroundColor: AppColors.bottomNavItemBgColorGreen),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.person),
                         label: "Profile",
-                        backgroundColor: Colors.green),
+                        backgroundColor: AppColors.bottomNavItemBgColorGreen),
                     BottomNavigationBarItem(
                         icon: Icon(Icons.textsms_outlined),
                         label: "Forum",
-                        backgroundColor: Colors.green)
+                        backgroundColor: AppColors.bottomNavItemBgColorGreen)
                   ],
                   onTap: (index) {
                     setState(() {

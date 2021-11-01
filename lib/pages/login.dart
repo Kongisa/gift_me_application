@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -27,7 +28,11 @@ class _LoginState extends State<Login> {
         Text(
           'Welcome to Gift Me',
           style: TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
         )
       ],
     );
@@ -44,7 +49,10 @@ class _LoginState extends State<Login> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.6,
             width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(
+              //this BoxDecoration imports the white color
+              color: AppColors.boxDecorationWhite,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -94,7 +102,8 @@ class _LoginState extends State<Login> {
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
             hintText: "Name",
-            hintStyle: TextStyle(color: Colors.black38)),
+            //Importing the black hintStyle color
+            hintStyle: TextStyle(color: AppColors.hintStyleColour)),
       ),
     );
   }
@@ -111,14 +120,15 @@ class _LoginState extends State<Login> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
-            suffixIcon: InkWell(
-                onTap: _togglePasswordView,
-                child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
-            hintText: "Password",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
+          suffixIcon: InkWell(
+              onTap: _togglePasswordView,
+              child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
+          hintText: "Password",
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -127,7 +137,12 @@ class _LoginState extends State<Login> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [FlatButton(onPressed: () {}, child: Text('Forgot Password?'))],
+      children: [
+        TextButton(
+          onPressed: () {},
+          child: Text('Forgot Password?'),
+        ),
+      ],
     );
   }
 
@@ -145,7 +160,11 @@ class _LoginState extends State<Login> {
                 },
                 child: Text(
                   'Login',
-                  style: TextStyle(color: Colors.white, letterSpacing: 1.5),
+                  style: TextStyle(
+                    //imports the white text color
+                    color: AppColors.whiteTextColor,
+                    letterSpacing: 1.5,
+                  ),
                 )))
       ],
     );
@@ -160,7 +179,8 @@ class _LoginState extends State<Login> {
               TextSpan(
                 text: 'Already have an Account?',
                 style: TextStyle(
-                  color: Colors.black,
+                  //importing the black text colour
+                  color: AppColors.blackTextColor,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
@@ -181,16 +201,21 @@ class _LoginState extends State<Login> {
       children: [
         Text('Do Not Have An Account?',
             style: TextStyle(
-                color: Colors.black,
+                //importing the black text color
+                color: AppColors.blackTextColor,
                 fontSize: 15,
                 fontWeight: FontWeight.bold)),
-        FlatButton(
+        TextButton(
             onPressed: () {
               Navigator.of(context).pushNamed(RouteManager.signUp);
             },
             child: Text(
               'Sign Up',
-              style: TextStyle(color: Colors.blue, fontSize: 18),
+              style: TextStyle(
+                //importing the blue text color
+                color: AppColors.blueTextColor,
+                fontSize: 18,
+              ),
             )),
       ],
     );
@@ -208,7 +233,8 @@ class _LoginState extends State<Login> {
           width: MediaQuery.of(context).size.width,
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.blue,
+                //importing the blue BoxDecoration
+                color: AppColors.boxDecorationBlue,
                 borderRadius: BorderRadius.only(
                   bottomLeft: const Radius.circular(40),
                   bottomRight: const Radius.circular(40),

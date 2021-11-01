@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class GetItem2 extends StatefulWidget {
   _GetItemState2 createState() => _GetItemState2();
@@ -51,18 +52,19 @@ class _GetItemState2 extends State<GetItem2> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 10,top: 180),
+                    padding: const EdgeInsets.only(right: 10, top: 180),
                     child: Text(
-                        'Condition: ',
-                        style: TextStyle(fontSize: 15),
-                      ),
+                      'Condition: ',
+                      style: TextStyle(fontSize: 15),
+                    ),
                   ),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 80),
                     child: _buildRating(),
                   ),
-                  
                 ],
               ),
             ),
@@ -75,11 +77,32 @@ class _GetItemState2 extends State<GetItem2> {
   Widget _buildRating() {
     return Row(
       children: [
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow,),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30,color: Colors.yellow),
+        //all of the icons import the yellowicon color
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
+        Icon(
+          Icons.star_outline,
+          size: 30,
+          color: AppColors.yellowIconsColor,
+        ),
       ],
     );
   }
@@ -94,16 +117,20 @@ class _GetItemState2 extends State<GetItem2> {
             height: 150,
             width: 150,
             decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
+              boxShadow: [
+                BoxShadow(
+                  //boxShadow colour import
+                  color: AppColors.boxShadowColourBlueWithOpacity,
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0.0, 5), // changes position of shadow
+                ),
+              ],
+              color: Colors.white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
             child: _buildImage(),
           ),
         )
@@ -129,7 +156,8 @@ class _GetItemState2 extends State<GetItem2> {
               width: MediaQuery.of(context).size.width,
               child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      //importing the blue box decoration
+                      color: AppColors.boxDecorationBlue,
                       borderRadius: BorderRadius.only(
                         bottomLeft: const Radius.circular(40),
                         bottomRight: const Radius.circular(40),
@@ -139,7 +167,11 @@ class _GetItemState2 extends State<GetItem2> {
                 padding: EdgeInsets.only(left: 165, top: 20),
                 child: Text(
                   'Title',
-                  style: TextStyle(color: Colors.white, fontSize: 35),
+                  style: TextStyle(
+                    //importing the white text color
+                    color: AppColors.whiteTextColor,
+                    fontSize: 35,
+                  ),
                 )),
             Padding(
               padding: const EdgeInsets.only(right: 10, bottom: 530),
@@ -155,10 +187,10 @@ class _GetItemState2 extends State<GetItem2> {
                 onPressed: () {},
                 child: Text('Request'),
                 style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(120, 40),),
+                  fixedSize: const Size(120, 40),
+                ),
               ),
             )
-
           ],
         ),
       ),

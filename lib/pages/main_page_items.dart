@@ -3,18 +3,16 @@ import 'package:project_gift_me/pages/donation_options.dart';
 import 'package:project_gift_me/pages/navigation_drawer_widget.dart';
 import 'package:project_gift_me/pages/request_main.dart';
 import 'package:project_gift_me/routes/routes.dart';
-
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-
   int currentIndex = 0;
 
   final pages = [MainPage(), DonationOptions()];
-
 
   Widget _buildLogo() {
     return Row(
@@ -23,7 +21,11 @@ class _MainPageState extends State<MainPage> {
         Text(
           'Welcome to Gift Me',
           style: TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
         )
       ],
     );
@@ -40,7 +42,7 @@ class _MainPageState extends State<MainPage> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.7,
             width: MediaQuery.of(context).size.width * 0.9,
-            decoration: BoxDecoration(color: Colors.grey[300]),
+            decoration: BoxDecoration(color: AppColors.boxDecorationGrey300),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +75,8 @@ class _MainPageState extends State<MainPage> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        //importing the container colour of blue300
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -115,7 +118,7 @@ class _MainPageState extends State<MainPage> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -157,7 +160,7 @@ class _MainPageState extends State<MainPage> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -248,7 +251,7 @@ class _MainPageState extends State<MainPage> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -282,35 +285,37 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget _buildDrawer()
-  {
+  Widget _buildDrawer() {
     return Scaffold(
       drawer: NavigationDrawerWidget(),
-      appBar: AppBar(
-        
-      ),
+      appBar: AppBar(),
     );
   }
-  
 
   Widget _buildTopBar() {
     return Row(
       children: [
         SizedBox(width: 8),
         IconButton(
-          onPressed: (){
-
+          onPressed: () {
             _buildDrawer();
-            
-
           },
-          splashColor: Colors.white,
-          icon: Icon(Icons.menu,size: 40, color: Colors.white,),
+          //importing the splash color
+          splashColor: AppColors.splashColorWhite,
+          icon: Icon(
+            Icons.menu,
+            size: 40,
+            color: Colors.white,
+          ),
         ),
         SizedBox(width: 80),
         Text(
           "Gift Me",
-          style: TextStyle(fontSize: 40, color: Colors.white),
+          style: TextStyle(
+            fontSize: 40,
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+          ),
         ),
         SizedBox(width: 80),
         Icon(
@@ -339,7 +344,8 @@ class _MainPageState extends State<MainPage> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.white,
+                  //importing the white boxShadow color
+                  color: AppColors.boxShadowColourWhite,
                   spreadRadius: 4,
                 )
               ],
@@ -356,13 +362,25 @@ class _MainPageState extends State<MainPage> {
         SizedBox(width: 25),
         Text(
           'Food Items',
-          style: TextStyle(color: Colors.white, fontSize: 25),
+          style: TextStyle(
+            //importing the white text color
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+          ),
         ),
         SizedBox(width: 15),
-         FlatButton(onPressed: () {
-           Navigator.of(context).pushNamed(RouteManager.mainPage2);
-          
-        }, child: Text('Other Items', style: TextStyle(color: Colors.black, fontSize: 20),)),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(RouteManager.mainPage2);
+            },
+            child: Text(
+              'Other Items',
+              style: TextStyle(
+                //importing the black text color
+                color: AppColors.blackTextColor,
+                fontSize: 20,
+              ),
+            )),
         SizedBox(width: 30),
         Icon(
           Icons.sort,
@@ -376,32 +394,28 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-          child: Scaffold(
-        drawer: NavigationDrawerWidget(),
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-          toolbarHeight: 80,
-          title: Text('Gift Me'),
-          centerTitle: true,
-          // actions: [
-          //   Padding(
-          //     padding: const EdgeInsets.only(right: 10),
-          //     child: Icon(Icons.settings,size: 40),
-          //   )
-          // ],
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              
+      child: Scaffold(
+          drawer: NavigationDrawerWidget(),
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            toolbarHeight: 80,
+            title: Text('Gift Me'),
+            centerTitle: true,
+            // actions: [
+            //   Padding(
+            //     padding: const EdgeInsets.only(right: 10),
+            //     child: Icon(Icons.settings,size: 40),
+            //   )
+            // ],
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                //importing the blue BoxDecoration
+                color: AppColors.boxDecorationBlue,
+              ),
             ),
-           
           ),
-          
-        ),
-        body: pages[currentIndex ]
-        
-      ),
+          body: pages[currentIndex]),
     );
   }
 }
