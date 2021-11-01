@@ -238,7 +238,7 @@ class NonFoodItemsState extends State<NonFoodItems> {
                 elevation: 5.0,
                 color: Colors.blue,
                 onPressed: () {
-                  Navigator.of(context).pushNamed(RouteManager.mainPage);
+                  Navigator.of(context).pushNamed(RouteManager.splashScreen3);
                 },
                 child: Text(
                   'Submit',

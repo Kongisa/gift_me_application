@@ -71,7 +71,7 @@ class _DonationOptionsState extends State<DonationOptions> {
               ),
             ),
             onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.donor);
+                Navigator.of(context).pushNamed(RouteManager.recipient);
               }
           ),
           

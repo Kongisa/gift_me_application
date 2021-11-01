@@ -478,13 +478,25 @@ class _MainPageState2 extends State<MainPage2> {
                         backgroundColor: Colors.blue)
                   ],
                   onTap: (index) {
-
                     setState(() {
+
+                      if(index == 0)
+                      {
+                        Navigator.of(context)
+                                  .pushNamed(RouteManager.mainPage);
+                      }
+                      else if(index == 2)
+                      {
+                        Navigator.of(context)
+                                  .pushNamed(RouteManager.donationOptions);
+                      }
+                      else{
+                        Navigator.of(context)
+                                  .pushNamed(RouteManager.requestMain2);
+
+                      }
                       _currentpos = index;
                     });
-
-
-
                   },),
                 ),
               ],

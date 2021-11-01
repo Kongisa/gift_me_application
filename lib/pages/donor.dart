@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_gift_me/routes/routes.dart';
 
 class Donor extends StatefulWidget {
   _DonorState createState() => _DonorState();
@@ -57,7 +58,8 @@ class _DonorState extends State<Donor> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
+       InkWell(
+         child:  Padding(
           padding: const EdgeInsets.only(top: 180),
           child: Container(
             height: 150,
@@ -79,7 +81,49 @@ class _DonorState extends State<Donor> {
               children: [Image.asset('assets/images/food.jpg')],
             ),
           ),
-        )
+        ),
+        onTap: () {
+                Navigator.of(context).pushNamed(RouteManager.foodItems);
+              }
+        
+       )
+      ],
+    );
+  }
+
+  Widget _buildContainment4() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+       InkWell(
+         child:  Padding(
+          padding: const EdgeInsets.only(top: 180),
+          child: Container(
+            height: 150,
+            width: 150,
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.blue.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 7,
+                    offset: Offset(0.0, 5), // changes position of shadow
+                  ),
+                ],
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Image.asset('assets/images/food.jpg')],
+            ),
+          ),
+        ),
+        onTap: () {
+                Navigator.of(context).pushNamed(RouteManager.foodItems);
+              }
+        
+       )
       ],
     );
   }
@@ -88,7 +132,8 @@ class _DonorState extends State<Donor> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
+        InkWell(
+            child: Padding(
           padding: const EdgeInsets.only(top: 180),
           child: Container(
             height: 150,
@@ -110,10 +155,19 @@ class _DonorState extends State<Donor> {
               children: [Image.asset('assets/images/clothes.png')],
             ),
           ),
-        )
+          
+        ),
+        onTap: () {
+                Navigator.of(context).pushNamed(RouteManager.nonFoodItems);
+              }),
+
       ],
     );
   }
+
+  
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -150,11 +204,14 @@ class _DonorState extends State<Donor> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 340, left: 100),
-              child: Text('Choose Item Type', style: TextStyle(fontSize: 25),),
+              child: Text(
+                'Choose Item Type',
+                style: TextStyle(fontSize: 25),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 10, top: 210),
-              child: _buildContainment2(),
+              child: _buildContainment4(),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 130, top: 550),

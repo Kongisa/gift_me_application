@@ -1,12 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:project_gift_me/routes/routes.dart';
 
-class FoodItems extends StatefulWidget {
+
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+
+class DonateFoodItems extends StatefulWidget {
   @override
-  FoodItemsState createState() => FoodItemsState();
+  _DonateFoodItemsState createState() => _DonateFoodItemsState();
 }
 
-class FoodItemsState extends State<FoodItems> {
+class _DonateFoodItemsState extends State<DonateFoodItems> {
   bool isRememberMe = false;
   bool isHiddenPassword = true;
   late String email, password;
@@ -78,8 +80,8 @@ class FoodItemsState extends State<FoodItems> {
             Radius.circular(20),
           ),
           child: Container(
-            height: 150,
-            width: 150,
+            height: 100,
+            width: 100,
             decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: Colors.blue, width: 2),
@@ -185,7 +187,7 @@ class FoodItemsState extends State<FoodItems> {
   }
 
   Widget _buildImage() {
-    return Icon(Icons.add_a_photo_rounded, size: 80);
+    return Icon(Icons.add_a_photo_rounded, size: 40);
   }
 
   Widget _buildItems() {
@@ -201,59 +203,36 @@ class FoodItemsState extends State<FoodItems> {
     );
   }
 
-  Widget _buildRating() {
-    return Row(
-      children: [
-        Icon(
-          Icons.star_outline,
-          size: 30,
-          color: Colors.yellow,
-        ),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-        Icon(Icons.star_outline, size: 30, color: Colors.yellow),
-      ],
-    );
-  }
-
-  Widget _buildDivider() {
-    return Divider(
-      color: Colors.grey,
-      thickness: 1.2,
-      indent: 5,
-      endIndent: 5,
-    );
-  }
-
-  Widget _buildSubmitButton() {
+   Widget _buildLoginButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-            height: 45,
-            width: 160,
-            margin: EdgeInsets.only(bottom: 20),
-            child: RaisedButton(
-                elevation: 5.0,
-                color: Colors.blue,
-                onPressed: () {
-                  Navigator.of(context).pushNamed(RouteManager.splashScreen3);
-                },
-                child: Text(
-                  'Submit',
-                  style: TextStyle(color: Colors.white, letterSpacing: 1.5),
-                )))
+          height: 45,
+          width: 160,
+          margin: EdgeInsets.only(bottom: 20),
+          child:RaisedButton(
+            elevation: 5.0,
+            color: Colors.blue,
+            onPressed: (){}, child: Text('Submit', style: TextStyle(
+              color: Colors.white,
+              letterSpacing: 1.5
+            ),))
+        )
       ],
+
     );
   }
 
   Widget _buildText() {
-    return Text(
-      'Quality',
-      style: TextStyle(
-        color: Colors.grey,
-        fontSize: 16,
+    return Padding(
+      padding: EdgeInsets.only(left: 20),
+      child: Text(
+        'Condition',
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: 16,
+        ),
       ),
     );
   }
@@ -287,10 +266,64 @@ class FoodItemsState extends State<FoodItems> {
     );
   }
 
+   Widget _buildContainment() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 180),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width * 0.8,
+              decoration: BoxDecoration(color: Colors.white),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 10),
+                    Text("Details",
+                            style: TextStyle(
+                              fontSize: 25,
+                            )),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        
+                      ],
+                    ),
+                    SizedBox(height: 30),
+                    _buildNamer(),
+                    SizedBox(height: 30),
+                    _buildNamer2(),
+                    _buildText(),
+                    SizedBox(height: 30),
+                    _buildItems(),
+                    SizedBox(height: 30),
+                    _buildNamer3(),
+                    SizedBox(height: 30),
+                    _buildNamer4(),
+                    
+                    
+                  ],
+                ),
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(
+    return SafeArea(
+        child: Scaffold(
+            body: Stack(
       children: [
         Container(
           height: 250,
@@ -304,9 +337,9 @@ class FoodItemsState extends State<FoodItems> {
                   ))),
         ),
         Padding(
-            padding: EdgeInsets.only(left: 140, top: 40),
+            padding: EdgeInsets.only(left: 140, top: 20),
             child: Text(
-              'Food Items',
+              'Other Items',
               style: TextStyle(color: Colors.white, fontSize: 25),
             )),
         Column(
@@ -316,7 +349,7 @@ class FoodItemsState extends State<FoodItems> {
             SizedBox(height: 10),
             //_buildImage(),
             Padding(
-                padding: EdgeInsets.only(bottom: 400),
+                padding: EdgeInsets.only(bottom: 640),
                 child: _buildContainer()),
             SizedBox(height: 10),
           ],
@@ -324,35 +357,23 @@ class FoodItemsState extends State<FoodItems> {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 320),
-            _buildNamer(),
-            SizedBox(height: 20),
-            _buildNamer2(),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: _buildText(),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 130),
-              child: _buildRating(),
-            ),
-            _buildDivider(),
-            SizedBox(height: 20),
-            _buildNamer3(),
-            SizedBox(height: 20),
-            _buildNamer4(),
-            SizedBox(height: 5),
+            _buildContainment(),
             Row(
-              children: [_buildCheckBox(), _buildText2()],
+              children: [
+                
+                _buildCheckBox(),
+                _buildText2()
+                
+               
+              
+              ],
             ),
             SizedBox(height: 5),
-            _buildSubmitButton(),
+             _buildLoginButton(),
           ],
         )
       ],
-    ));
+    )));
   }
 
   DropdownMenuItem<String> buildMenuItem(String item) {
