@@ -8,6 +8,7 @@ import 'package:project_gift_me/pages/main_page.dart';
 import 'package:project_gift_me/pages/main_page2.dart';
 import 'package:project_gift_me/pages/food_items.dart';
 import 'package:project_gift_me/pages/non_food_items.dart';
+import 'package:project_gift_me/pages/profile.dart';
 import 'package:project_gift_me/pages/recipients.dart';
 import 'package:project_gift_me/pages/request_main.dart';
 import 'package:project_gift_me/pages/request_main2.dart';
@@ -36,6 +37,7 @@ class RouteManager {
   static const String foodItems = '/foodItems';
   static const String foodItems2 = '/foodItems2';
   static const String nonFoodItems = '/nonFoodItems';
+  static const String profile = '/profile';
   static const String recipient = '/recipient';
   static const String settingsPage = '/settingsPage';
 
@@ -69,6 +71,11 @@ class RouteManager {
       case mainPage:
         return MaterialPageRoute(
           builder: (context) => MainPage(),
+        );
+
+        case profile:
+        return MaterialPageRoute(
+          builder: (context) => Profile(),
         );
 
       case mainPage2:

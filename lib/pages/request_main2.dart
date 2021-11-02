@@ -690,6 +690,11 @@ class _RequestMainState2 extends State<RequestMain2> {
                         Navigator.of(context)
                                   .pushNamed(RouteManager.donationOptions);
                       }
+                      else if(index == 3)
+                      {
+                        Navigator.of(context)
+                                  .pushNamed(RouteManager.profile);
+                      }
                       else{
                         Navigator.of(context)
                                   .pushNamed(RouteManager.requestMain2);
