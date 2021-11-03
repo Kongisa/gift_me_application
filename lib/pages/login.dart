@@ -170,32 +170,6 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget _buildSignInButton() {
-    return GestureDetector(
-        onTap: () => print("Sign In Pressed"),
-        child: RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: 'Already have an Account?',
-                style: TextStyle(
-                  //importing the black text colour
-                  color: AppColors.blackTextColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              TextSpan(
-                  text: ' Sign Up',
-                  style: TextStyle(
-                      color: Colors.lightBlue,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold)),
-            ],
-          ),
-        ));
-  }
-
   Widget _buildSignInButton2() {
     return Row(
       children: [
