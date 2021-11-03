@@ -63,11 +63,13 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
-            hintText: "Item Name",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
+          hintText: "Item Name",
+          //importing the black hintsStyle colour
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -83,11 +85,13 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
-            hintText: "Description",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
+          hintText: "Description",
+          //importing the black hintstyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -103,11 +107,13 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
-            hintText: "Drop Off Time",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
+          hintText: "Drop Off Time",
+          //importing the black hintStyle
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -127,7 +133,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(Icons.hourglass_bottom, color: Color(0xFF1F68AC)),
             hintText: "Use Before",
-            hintStyle: TextStyle(color: Colors.black38)),
+            //importing the black hintStyle color
+            hintStyle: TextStyle(color: AppColors.hintStyleColour)),
       ),
     );
   }
@@ -183,7 +190,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
       child: Text(
         'Condition',
         style: TextStyle(
-          color: Colors.grey,
+          //importing the grey text color
+          color: AppColors.greyTextColour,
           fontSize: 16,
         ),
       ),
@@ -196,7 +204,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
       child: Text(
         'Anonymous',
         style: TextStyle(
-          color: Colors.grey,
+          //importing the grey text color
+          color: AppColors.greyTextColour,
           fontSize: 16,
         ),
       ),
@@ -208,8 +217,10 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
       padding: EdgeInsets.only(right: 1),
       child: Checkbox(
         value: isRememberMe,
-        checkColor: Colors.white,
-        activeColor: Colors.blue,
+        //importing the check color
+        checkColor: AppColors.checkColorWhite,
+        //importing the blue active status colour
+        activeColor: AppColors.activeStatusColBlue,
         onChanged: (value) {
           setState(() {
             isRememberMe = value!;
@@ -232,7 +243,10 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.width * 0.8,
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(
+                //importing the white BoxDecoration
+                color: AppColors.boxDecorationWhite,
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
