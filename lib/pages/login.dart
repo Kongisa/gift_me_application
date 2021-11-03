@@ -157,49 +157,6 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget _buildNamer() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(),
-    );
-  }
-
-  Widget _buildPassworder() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        autofocus: false,
-        controller: passwordController,
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
-        validator: (value) {
-          RegExp regex = new RegExp(r'^.{6,}$');
-
-          if (value!.isEmpty) {
-            return ('Password Is required, enter password');
-          }
-          if (!regex.hasMatch(value)) {
-            return ('Please enter valid password with minimum of 6 characters');
-          }
-        },
-        onSaved: (value) {
-          passwordController.text = value!;
-        },
-        textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
-          suffixIcon: InkWell(
-              onTap: _togglePasswordView,
-              child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
-          hintText: "Password",
-          hintStyle: TextStyle(color: AppColors.hintStyleColour),
-        ),
-      ),
-    );
-  }
-
   Widget _buildForgetPasswordButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -223,7 +180,6 @@ class _LoginState extends State<Login> {
             margin: EdgeInsets.only(bottom: 20),
             child: ElevatedButton(
                 onPressed: () {
-                  
                   signIn(emailController.text, passwordController.text);
                 },
                 child: Text(

@@ -54,76 +54,37 @@ class _DonorState extends State<Donor> {
         width: 100, height: 100, fit: BoxFit.fill);
   }
 
-  Widget _buildContainment2() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-       InkWell(
-         child:  Padding(
-          padding: const EdgeInsets.only(top: 180),
-          child: Container(
-            height: 150,
-            width: 150,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Image.asset('assets/images/food.jpg')],
-            ),
-          ),
-        ),
-        onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.foodItems);
-              }
-        
-       )
-      ],
-    );
-  }
-
   Widget _buildContainment4() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-       InkWell(
-         child:  Padding(
-          padding: const EdgeInsets.only(top: 180),
-          child: Container(
-            height: 150,
-            width: 150,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Image.asset('assets/images/food.jpg')],
+        InkWell(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 180),
+              child: Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 7,
+                        offset: Offset(0.0, 5), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Image.asset('assets/images/food.jpg')],
+                ),
+              ),
             ),
-          ),
-        ),
-        onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.foodItems);
-              }
-        
-       )
+            onTap: () {
+              Navigator.of(context).pushNamed(RouteManager.foodItems);
+            })
       ],
     );
   }
@@ -134,40 +95,34 @@ class _DonorState extends State<Donor> {
       children: [
         InkWell(
             child: Padding(
-          padding: const EdgeInsets.only(top: 180),
-          child: Container(
-            height: 150,
-            width: 150,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Image.asset('assets/images/clothes.png')],
+              padding: const EdgeInsets.only(top: 180),
+              child: Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 7,
+                        offset: Offset(0.0, 5), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Image.asset('assets/images/clothes.png')],
+                ),
+              ),
             ),
-          ),
-          
-        ),
-        onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.nonFoodItems);
-              }),
-
+            onTap: () {
+              Navigator.of(context).pushNamed(RouteManager.nonFoodItems);
+            }),
       ],
     );
   }
-
-  
-
-  
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class DonateFoodItems extends StatefulWidget {
   @override
@@ -17,59 +16,6 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
   String? value;
 
   final items = ['Excellent', 'Very Good ', 'Good', 'Bad', 'Very Bad'];
-
-  Widget _buildLogo() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 800),
-          child: Text(
-            'Food Items',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget _buildContainer2() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: Colors.white),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Details",
-                      style: TextStyle(
-                        fontSize: 25,
-                      )),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [],
-                  ),
-                  SizedBox(height: 30),
-                  _buildNamer(),
-                  SizedBox(height: 20),
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
 
   Widget _buildContainer() {
     return Row(
@@ -203,24 +149,31 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
     );
   }
 
-   Widget _buildLoginButton() {
+  Widget _buildLoginButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 45,
-          width: 160,
-          margin: EdgeInsets.only(bottom: 20),
-          child:RaisedButton(
-            elevation: 5.0,
-            color: Colors.blue,
-            onPressed: (){}, child: Text('Submit', style: TextStyle(
-              color: Colors.white,
-              letterSpacing: 1.5
-            ),))
-        )
+            height: 45,
+            width: 160,
+            margin: EdgeInsets.only(bottom: 20),
+            child: ElevatedButton(
+                //elevation: 5.0,
+                //color: Colors.blue,
+                style: ElevatedButton.styleFrom(
+                  elevation: 5.0,
+                  primary: AppColors.eButtonColBlue,
+                ),
+                onPressed: () {},
+                child: Text(
+                  'Submit',
+                  style: TextStyle(
+                    //importing the white text color
+                    color: AppColors.whiteTextColor,
+                    letterSpacing: 1.5,
+                  ),
+                )))
       ],
-
     );
   }
 
@@ -266,7 +219,7 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
     );
   }
 
-   Widget _buildContainment() {
+  Widget _buildContainment() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -287,14 +240,12 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
                   children: [
                     SizedBox(height: 10),
                     Text("Details",
-                            style: TextStyle(
-                              fontSize: 25,
-                            )),
+                        style: TextStyle(
+                          fontSize: 25,
+                        )),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        
-                      ],
+                      children: [],
                     ),
                     SizedBox(height: 30),
                     _buildNamer(),
@@ -307,8 +258,6 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
                     _buildNamer3(),
                     SizedBox(height: 30),
                     _buildNamer4(),
-                    
-                    
                   ],
                 ),
               ),
@@ -359,17 +308,10 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           children: [
             _buildContainment(),
             Row(
-              children: [
-                
-                _buildCheckBox(),
-                _buildText2()
-                
-               
-              
-              ],
+              children: [_buildCheckBox(), _buildText2()],
             ),
             SizedBox(height: 5),
-             _buildLoginButton(),
+            _buildLoginButton(),
           ],
         )
       ],
