@@ -10,22 +10,6 @@ class MainPage2 extends StatefulWidget {
 class _MainPageState2 extends State<MainPage2> {
   int _currentpos = 0;
 
-  Widget _buildLogo() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Welcome to Gift Me',
-          style: TextStyle(
-            color: AppColors.whiteTextColor,
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-        )
-      ],
-    );
-  }
-
   Widget _buildContainer() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -277,71 +261,6 @@ class _MainPageState2 extends State<MainPage2> {
     );
   }
 
-  Widget _buildDrawer() {
-    return Scaffold(
-      drawer: NavigationDrawerWidget(),
-      appBar: AppBar(),
-    );
-  }
-
-  Widget _buildTopBar() {
-    return Row(
-      children: [
-        SizedBox(width: 8),
-        IconButton(
-          onPressed: () {
-            _buildDrawer();
-          },
-          splashColor: Colors.white,
-          icon: Icon(
-            Icons.menu,
-            size: 40,
-            color: Colors.white,
-          ),
-        ),
-        SizedBox(width: 80),
-        Text(
-          "Gift Me",
-          style: TextStyle(fontSize: 40, color: Colors.white),
-        ),
-        SizedBox(width: 80),
-        Icon(
-          Icons.settings,
-          color: Colors.white,
-          size: 40,
-        ),
-
-        // Text("Food Items", style: TextStyle(fontSize: 20, color: Colors.white),),
-        // Text("Other Items", style: TextStyle(fontSize: 20, color: Colors.white),)
-      ],
-    );
-  }
-
-  Widget _buildProfile() {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 105,
-          ),
-          child: Container(
-            width: 180.0,
-            height: 140.0,
-            decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  spreadRadius: 4,
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _buildSelectPage() {
     return Row(
       children: [
@@ -470,6 +389,9 @@ class _MainPageState2 extends State<MainPage2> {
                         Navigator.of(context)
                             .pushNamed(RouteManager.donationOptions);
                       }
+                      //Why : This piece of code was causing an error. IDK
+                      //why its here if it doesn't contain an index. When I change
+                      //it to an if-else, it doesn't show any errors
                       //else{
                       // Navigator.of(context)
                       //          .pushNamed(RouteManager.donationOptions);

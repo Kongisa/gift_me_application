@@ -9,7 +9,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentpos = 0;
-  final List<Widget> _pages = [];
+  //final List<Widget> _pages = [];
 
   Widget _buildContainer() {
     return Row(
@@ -218,26 +218,16 @@ class _MainPageState extends State<MainPage> {
                   ],
                   onTap: (index) {
                     setState(() {
-
-                      if(index == 0)
-                      {
+                      if (index == 0) {
+                        Navigator.of(context).pushNamed(RouteManager.mainPage);
+                      } else if (index == 2) {
                         Navigator.of(context)
-                                  .pushNamed(RouteManager.mainPage);
-                      }
-                      else if(index == 2)
-                      {
+                            .pushNamed(RouteManager.donationOptions);
+                      } else if (index == 3) {
+                        Navigator.of(context).pushNamed(RouteManager.profile);
+                      } else {
                         Navigator.of(context)
-                                  .pushNamed(RouteManager.donationOptions);
-                      }
-                      else if(index == 3)
-                      {
-                        Navigator.of(context)
-                                  .pushNamed(RouteManager.profile);
-                      }
-                      else{
-                        Navigator.of(context)
-                                  .pushNamed(RouteManager.requestMain2);
-
+                            .pushNamed(RouteManager.requestMain2);
                       }
                       _currentpos = index;
                     });
