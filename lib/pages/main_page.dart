@@ -229,6 +229,11 @@ class _MainPageState extends State<MainPage> {
                         Navigator.of(context)
                                   .pushNamed(RouteManager.donationOptions);
                       }
+                      else if(index == 3)
+                      {
+                        Navigator.of(context)
+                                  .pushNamed(RouteManager.profile);
+                      }
                       else{
                         Navigator.of(context)
                                   .pushNamed(RouteManager.requestMain2);

@@ -17,7 +17,10 @@ class _MainPageState2 extends State<MainPage2> {
         Text(
           'Welcome to Gift Me',
           style: TextStyle(
-              color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+            color: AppColors.whiteTextColor,
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+          ),
         )
       ],
     );
@@ -466,6 +469,13 @@ class _MainPageState2 extends State<MainPage2> {
                       } else if (index == 2) {
                         Navigator.of(context)
                             .pushNamed(RouteManager.donationOptions);
+                      }
+                      //else{
+                      // Navigator.of(context)
+                      //          .pushNamed(RouteManager.donationOptions);
+                      // }
+                      else if (index == 3) {
+                        Navigator.of(context).pushNamed(RouteManager.profile);
                       } else {
                         Navigator.of(context)
                             .pushNamed(RouteManager.requestMain2);

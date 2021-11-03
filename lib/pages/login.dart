@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:project_gift_me/pages/main_page.dart';
 import 'package:project_gift_me/routes/routes.dart';
 import 'package:project_gift_me/styles/app_colors.dart';
 
@@ -11,6 +15,13 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   TextEditingController usernameController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   void dispose() {
@@ -39,6 +50,65 @@ class _LoginState extends State<Login> {
   }
 
   Widget _buildContainer() {
+    final emailField = TextFormField(
+      autofocus: false,
+      controller: emailController,
+      keyboardType: TextInputType.emailAddress,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return ('Please Enter Your Email');
+        }
+
+        if (!RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9+_.]+.[a-z]')
+            .hasMatch(value)) {
+          return ("Please Enter A Valid Email");
+        }
+
+        return null;
+      },
+      onSaved: (value) {
+        emailController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
+          hintText: "Email",
+          //Importing the black hintStyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour)),
+    );
+
+    final passwordField = TextFormField(
+      autofocus: false,
+      controller: passwordController,
+      keyboardType: TextInputType.visiblePassword,
+      obscureText: true,
+      validator: (value) {
+        RegExp regex = new RegExp(r'^.{6,}$');
+
+        if (value!.isEmpty) {
+          return ('Password Is required, enter password');
+        }
+        if (!regex.hasMatch(value)) {
+          return ('Please enter valid password with minimum of 6 characters');
+        }
+      },
+      onSaved: (value) {
+        passwordController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+        //border: InputBorder.none,
+        contentPadding: EdgeInsets.only(top: 14),
+        prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
+        suffixIcon: InkWell(
+            onTap: _togglePasswordView,
+            child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
+        hintText: "Password",
+        hintStyle: TextStyle(color: AppColors.hintStyleColour),
+      ),
+    );
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -67,9 +137,9 @@ class _LoginState extends State<Login> {
                   ],
                 ),
                 SizedBox(height: 30),
-                _buildNamer(),
+                emailField,
                 SizedBox(height: 20),
-                _buildPassworder(),
+                passwordField,
                 SizedBox(height: 20),
                 _buildForgetPasswordButton(),
                 SizedBox(height: 20),
@@ -90,21 +160,7 @@ class _LoginState extends State<Login> {
   Widget _buildNamer() {
     return Padding(
       padding: EdgeInsets.all(8),
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value) {
-          setState(() {
-            email = value;
-          });
-        },
-        decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
-            hintText: "Name",
-            //Importing the black hintStyle color
-            hintStyle: TextStyle(color: AppColors.hintStyleColour)),
-      ),
+      child: TextFormField(),
     );
   }
 
@@ -112,13 +168,24 @@ class _LoginState extends State<Login> {
     return Padding(
       padding: EdgeInsets.all(8),
       child: TextFormField(
+        autofocus: false,
+        controller: passwordController,
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
-        onChanged: (value) {
-          setState(() {
-            password = value;
-          });
+        validator: (value) {
+          RegExp regex = new RegExp(r'^.{6,}$');
+
+          if (value!.isEmpty) {
+            return ('Password Is required, enter password');
+          }
+          if (!regex.hasMatch(value)) {
+            return ('Please enter valid password with minimum of 6 characters');
+          }
         },
+        onSaved: (value) {
+          passwordController.text = value!;
+        },
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           //border: InputBorder.none,
           contentPadding: EdgeInsets.only(top: 14),
@@ -156,7 +223,8 @@ class _LoginState extends State<Login> {
             margin: EdgeInsets.only(bottom: 20),
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(RouteManager.splashScreen2);
+                  
+                  signIn(emailController.text, passwordController.text);
                 },
                 child: Text(
                   'Login',
@@ -200,37 +268,54 @@ class _LoginState extends State<Login> {
     print('Building Login');
     return SafeArea(
         child: Scaffold(
+            resizeToAvoidBottomInset: false,
             body: Stack(
-      children: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.5,
-          width: MediaQuery.of(context).size.width,
-          child: Container(
-            decoration: BoxDecoration(
-                //importing the blue BoxDecoration
-                color: AppColors.boxDecorationBlue,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: const Radius.circular(40),
-                  bottomRight: const Radius.circular(40),
-                )),
-          ),
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _buildLogo(),
-            SizedBox(height: 10),
-            _buildContainer(),
-            SizedBox(height: 10),
-          ],
-        )
-      ],
-    )));
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  width: MediaQuery.of(context).size.width,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        //importing the blue BoxDecoration
+                        color: AppColors.boxDecorationBlue,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: const Radius.circular(40),
+                          bottomRight: const Radius.circular(40),
+                        )),
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildLogo(),
+                    SizedBox(height: 10),
+                    _buildContainer(),
+                    SizedBox(height: 10),
+                  ],
+                )
+              ],
+            )));
   }
 
   void _togglePasswordView() {
     isHiddenPassword = !isHiddenPassword;
 
     setState(() {});
+  }
+
+  void signIn(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(msg: "Login Successful"),
+                //Navigator.of(context).pushNamed(RouteManager.splashScreen2),
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => MainPage()))
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
 }
