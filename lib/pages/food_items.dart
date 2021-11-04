@@ -282,7 +282,7 @@ class FoodItemsState extends State<FoodItems> {
             child: Text(
               'Food Items',
               style: TextStyle(
-                //applying the white text colour
+                //importing the white text colour
                 color: AppColors.whiteTextColor,
                 fontSize: 25,
               ),
