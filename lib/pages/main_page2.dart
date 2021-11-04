@@ -227,7 +227,8 @@ class _MainPageState2 extends State<MainPage2> {
       child: Container(
         height: 150,
         width: 350,
-        color: Colors.blue[300],
+        //importing the blue300 container colour
+        color: AppColors.containerColourBlue300,
         child: Row(
           children: [
             Icon(
@@ -271,7 +272,11 @@ class _MainPageState2 extends State<MainPage2> {
             },
             child: Text(
               'Food Items',
-              style: TextStyle(color: Colors.black, fontSize: 20),
+              style: TextStyle(
+                //importing the black text color
+                color: AppColors.blackTextColor,
+                fontSize: 20,
+              ),
             )),
         Text(
           'Other Items',
