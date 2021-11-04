@@ -78,7 +78,8 @@ class _DonorState extends State<Donor> {
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.blue.withOpacity(0.5),
+                        //importing the blue BoxShadow with opacity
+                        color: AppColors.boxShadowColourBlueWithOpacity,
                         spreadRadius: 2,
                         blurRadius: 7,
                         offset: Offset(0.0, 5), // changes position of shadow
@@ -113,7 +114,8 @@ class _DonorState extends State<Donor> {
                 decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.blue.withOpacity(0.5),
+                        //importing the blue BoxShadow with opacity
+                        color: AppColors.boxShadowColourBlueWithOpacity,
                         spreadRadius: 2,
                         blurRadius: 7,
                         offset: Offset(0.0, 5), // changes position of shadow

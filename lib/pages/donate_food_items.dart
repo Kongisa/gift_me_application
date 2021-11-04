@@ -29,7 +29,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             height: 100,
             width: 100,
             decoration: BoxDecoration(
-                color: Colors.white,
+                //importing the white BoxDecoration
+                color: AppColors.boxDecorationWhite,
                 border: Border.all(color: Colors.blue, width: 2),
                 borderRadius: BorderRadius.all(Radius.circular(500))),
             child: SingleChildScrollView(
@@ -303,7 +304,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             padding: EdgeInsets.only(left: 140, top: 20),
             child: Text(
               'Other Items',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              //importing the white text color
+              style: TextStyle(color: AppColors.whiteTextColor, fontSize: 25),
             )),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
