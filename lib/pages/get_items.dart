@@ -180,7 +180,7 @@ class _GetItemState extends State<GetItem> {
   }
 }
 
-//The build rating can be written like this for code reuse
+//The buildRating widget used in the _buildRating widget
 class buildRatingIcon extends StatelessWidget {
   const buildRatingIcon({
     Key? key,
