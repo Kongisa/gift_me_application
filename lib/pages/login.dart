@@ -196,7 +196,8 @@ class _LoginState extends State<Login> {
         Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.white,
+                //importing the white boxDecoration colour
+                color: AppColors.boxDecorationWhite,
               ),
               borderRadius: BorderRadius.circular(0.05),
             ),
