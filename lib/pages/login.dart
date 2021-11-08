@@ -71,12 +71,16 @@ class _LoginState extends State<Login> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
-          hintText: "Email",
-          //Importing the black hintStyle color
-          hintStyle: TextStyle(color: AppColors.hintStyleColour)),
+        //border: InputBorder.none,
+        contentPadding: EdgeInsets.only(top: 14),
+        prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
+        hintText: "email@example.com",
+        //Importing the black hintStyle color
+        hintStyle: TextStyle(
+          color: AppColors.hintStyleColour,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
     );
 
     final passwordField = TextFormField(
@@ -106,7 +110,10 @@ class _LoginState extends State<Login> {
             onTap: _togglePasswordView,
             child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
         hintText: "Password",
-        hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        hintStyle: TextStyle(
+          color: AppColors.hintStyleColour,
+          fontWeight: FontWeight.w800,
+        ),
       ),
     );
     return Row(
@@ -120,9 +127,12 @@ class _LoginState extends State<Login> {
             height: MediaQuery.of(context).size.height * 0.6,
             width: MediaQuery.of(context).size.width * 0.8,
             decoration: BoxDecoration(
-              //this BoxDecoration imports the white color
-              color: AppColors.boxDecorationWhite,
-            ),
+                //this BoxDecoration imports the white color
+                color: AppColors.boxDecorationWhite,
+                border: Border.all(
+                  color: Colors.white,
+                ),
+                borderRadius: BorderRadius.circular(5.0)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -133,6 +143,8 @@ class _LoginState extends State<Login> {
                     Text("Sign In",
                         style: TextStyle(
                           fontSize: 35,
+                          //importing the white text color
+                          color: AppColors.whiteTextColor,
                         ))
                   ],
                 ),
@@ -159,12 +171,19 @@ class _LoginState extends State<Login> {
 
   Widget _buildForgetPasswordButton() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextButton(
           onPressed: () {},
-          child: Text('Forgot Password?'),
+          child: Text(
+            'Forgot Password?',
+            style: TextStyle(
+              //importing the white text color
+              color: AppColors.whiteTextColor,
+              fontSize: 14,
+            ),
+          ),
         ),
       ],
     );
@@ -175,6 +194,12 @@ class _LoginState extends State<Login> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.white,
+              ),
+              borderRadius: BorderRadius.circular(0.05),
+            ),
             height: 45,
             width: 160,
             margin: EdgeInsets.only(bottom: 20),
@@ -196,11 +221,12 @@ class _LoginState extends State<Login> {
 
   Widget _buildSignInButton2() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('Do Not Have An Account?',
             style: TextStyle(
-                //importing the black text color
-                color: AppColors.blackTextColor,
+                //importing the white text color
+                color: AppColors.whiteTextColor,
                 fontSize: 15,
                 fontWeight: FontWeight.bold)),
         TextButton(
