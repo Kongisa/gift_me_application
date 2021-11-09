@@ -13,6 +13,7 @@ import 'package:project_gift_me/pages/recipients.dart';
 import 'package:project_gift_me/pages/request_main.dart';
 import 'package:project_gift_me/pages/request_main2.dart';
 import 'package:project_gift_me/pages/settings.dart';
+
 import 'package:project_gift_me/pages/sign_up.dart';
 import 'package:project_gift_me/pages/splashScreen.dart';
 import 'package:project_gift_me/pages/splashScreen2.dart';
@@ -32,6 +33,7 @@ class RouteManager {
   static const String donationOptions = '/donationOptions';
   static const String donor = '/donor';
   static const String signUp = '/signUp';
+   static const String signIn = '/signIn';
   static const String getItem = '/getItem';
   static const String getItem2 = '/getItem2';
   static const String foodItems = '/foodItems';
@@ -132,6 +134,11 @@ class RouteManager {
         return MaterialPageRoute(
           builder: (context) => SignUp(),
         );
+
+        // case signIn:
+        // return MaterialPageRoute(
+        //   builder: (context) => SignIn(),
+        // );
 
       case settingsPage:
         return MaterialPageRoute(
