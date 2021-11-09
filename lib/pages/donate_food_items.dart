@@ -1,7 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class DonateFoodItems extends StatefulWidget {
   @override
@@ -18,59 +17,6 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
 
   final items = ['Excellent', 'Very Good ', 'Good', 'Bad', 'Very Bad'];
 
-  Widget _buildLogo() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 800),
-          child: Text(
-            'Food Items',
-            style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget _buildContainer2() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: Colors.white),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Details",
-                      style: TextStyle(
-                        fontSize: 25,
-                      )),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [],
-                  ),
-                  SizedBox(height: 30),
-                  _buildNamer(),
-                  SizedBox(height: 20),
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
   Widget _buildContainer() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +29,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             height: 100,
             width: 100,
             decoration: BoxDecoration(
-                color: Colors.white,
+                //importing the white BoxDecoration
+                color: AppColors.boxDecorationWhite,
                 border: Border.all(color: Colors.blue, width: 2),
                 borderRadius: BorderRadius.all(Radius.circular(500))),
             child: SingleChildScrollView(
@@ -117,11 +64,13 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
-            hintText: "Item Name",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
+          hintText: "Item Name",
+          //importing the black hintsStyle colour
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -137,11 +86,13 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
-            hintText: "Description",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
+          hintText: "Description",
+          //importing the black hintstyle color
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -157,11 +108,13 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           });
         },
         decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
-            hintText: "Drop Off Time",
-            hintStyle: TextStyle(color: Colors.black38)),
+          //border: InputBorder.none,
+          contentPadding: EdgeInsets.only(top: 14),
+          prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
+          hintText: "Drop Off Time",
+          //importing the black hintStyle
+          hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        ),
       ),
     );
   }
@@ -181,7 +134,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             contentPadding: EdgeInsets.only(top: 14),
             prefixIcon: Icon(Icons.hourglass_bottom, color: Color(0xFF1F68AC)),
             hintText: "Use Before",
-            hintStyle: TextStyle(color: Colors.black38)),
+            //importing the black hintStyle color
+            hintStyle: TextStyle(color: AppColors.hintStyleColour)),
       ),
     );
   }
@@ -203,24 +157,31 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
     );
   }
 
-   Widget _buildLoginButton() {
+  Widget _buildLoginButton() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          height: 45,
-          width: 160,
-          margin: EdgeInsets.only(bottom: 20),
-          child:RaisedButton(
-            elevation: 5.0,
-            color: Colors.blue,
-            onPressed: (){}, child: Text('Submit', style: TextStyle(
-              color: Colors.white,
-              letterSpacing: 1.5
-            ),))
-        )
+            height: 45,
+            width: 160,
+            margin: EdgeInsets.only(bottom: 20),
+            child: ElevatedButton(
+                //elevation: 5.0,
+                //color: Colors.blue,
+                style: ElevatedButton.styleFrom(
+                  elevation: 5.0,
+                  primary: AppColors.eButtonColBlue,
+                ),
+                onPressed: () {},
+                child: Text(
+                  'Submit',
+                  style: TextStyle(
+                    //importing the white text color
+                    color: AppColors.whiteTextColor,
+                    letterSpacing: 1.5,
+                  ),
+                )))
       ],
-
     );
   }
 
@@ -230,7 +191,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
       child: Text(
         'Condition',
         style: TextStyle(
-          color: Colors.grey,
+          //importing the grey text color
+          color: AppColors.greyTextColour,
           fontSize: 16,
         ),
       ),
@@ -243,7 +205,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
       child: Text(
         'Anonymous',
         style: TextStyle(
-          color: Colors.grey,
+          //importing the grey text color
+          color: AppColors.greyTextColour,
           fontSize: 16,
         ),
       ),
@@ -255,8 +218,10 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
       padding: EdgeInsets.only(right: 1),
       child: Checkbox(
         value: isRememberMe,
-        checkColor: Colors.white,
-        activeColor: Colors.blue,
+        //importing the check color
+        checkColor: AppColors.checkColorWhite,
+        //importing the blue active status colour
+        activeColor: AppColors.activeStatusColBlue,
         onChanged: (value) {
           setState(() {
             isRememberMe = value!;
@@ -266,7 +231,7 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
     );
   }
 
-   Widget _buildContainment() {
+  Widget _buildContainment() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -279,7 +244,10 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.width * 0.8,
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(
+                //importing the white BoxDecoration
+                color: AppColors.boxDecorationWhite,
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -287,14 +255,12 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
                   children: [
                     SizedBox(height: 10),
                     Text("Details",
-                            style: TextStyle(
-                              fontSize: 25,
-                            )),
+                        style: TextStyle(
+                          fontSize: 25,
+                        )),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        
-                      ],
+                      children: [],
                     ),
                     SizedBox(height: 30),
                     _buildNamer(),
@@ -307,8 +273,6 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
                     _buildNamer3(),
                     SizedBox(height: 30),
                     _buildNamer4(),
-                    
-                    
                   ],
                 ),
               ),
@@ -340,7 +304,8 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
             padding: EdgeInsets.only(left: 140, top: 20),
             child: Text(
               'Other Items',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+              //importing the white text color
+              style: TextStyle(color: AppColors.whiteTextColor, fontSize: 25),
             )),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -359,17 +324,10 @@ class _DonateFoodItemsState extends State<DonateFoodItems> {
           children: [
             _buildContainment(),
             Row(
-              children: [
-                
-                _buildCheckBox(),
-                _buildText2()
-                
-               
-              
-              ],
+              children: [_buildCheckBox(), _buildText2()],
             ),
             SizedBox(height: 5),
-             _buildLoginButton(),
+            _buildLoginButton(),
           ],
         )
       ],

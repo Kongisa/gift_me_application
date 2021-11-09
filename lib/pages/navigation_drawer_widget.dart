@@ -9,10 +9,6 @@ class NavigationDrawerWidget extends StatefulWidget {
 class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
   final padding = EdgeInsets.symmetric(horizontal: 20);
 
-  Widget _buildIcon() {
-    return Icon(Icons.add_a_photo);
-  }
-
   @override
   Widget build(BuildContext context) {
     final String name = 'Name';

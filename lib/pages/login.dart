@@ -71,12 +71,16 @@ class _LoginState extends State<Login> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
-          hintText: "Email",
-          //Importing the black hintStyle color
-          hintStyle: TextStyle(color: AppColors.hintStyleColour)),
+        //border: InputBorder.none,
+        contentPadding: EdgeInsets.only(top: 14),
+        prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
+        hintText: "email@example.com",
+        //Importing the black hintStyle color
+        hintStyle: TextStyle(
+          color: AppColors.hintStyleColour,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
     );
 
     final passwordField = TextFormField(
@@ -106,7 +110,10 @@ class _LoginState extends State<Login> {
             onTap: _togglePasswordView,
             child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
         hintText: "Password",
-        hintStyle: TextStyle(color: AppColors.hintStyleColour),
+        hintStyle: TextStyle(
+          color: AppColors.hintStyleColour,
+          fontWeight: FontWeight.w800,
+        ),
       ),
     );
     return Row(
@@ -120,9 +127,12 @@ class _LoginState extends State<Login> {
             height: MediaQuery.of(context).size.height * 0.6,
             width: MediaQuery.of(context).size.width * 0.8,
             decoration: BoxDecoration(
-              //this BoxDecoration imports the white color
-              color: AppColors.boxDecorationWhite,
-            ),
+                //this BoxDecoration imports the white color
+                color: AppColors.boxDecorationWhite,
+                border: Border.all(
+                  color: Colors.white,
+                ),
+                borderRadius: BorderRadius.circular(5.0)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -133,6 +143,8 @@ class _LoginState extends State<Login> {
                     Text("Sign In",
                         style: TextStyle(
                           fontSize: 35,
+                          //importing the white text color
+                          color: AppColors.whiteTextColor,
                         ))
                   ],
                 ),
@@ -157,57 +169,21 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget _buildNamer() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(),
-    );
-  }
-
-  Widget _buildPassworder() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        autofocus: false,
-        controller: passwordController,
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
-        validator: (value) {
-          RegExp regex = new RegExp(r'^.{6,}$');
-
-          if (value!.isEmpty) {
-            return ('Password Is required, enter password');
-          }
-          if (!regex.hasMatch(value)) {
-            return ('Please enter valid password with minimum of 6 characters');
-          }
-        },
-        onSaved: (value) {
-          passwordController.text = value!;
-        },
-        textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
-          suffixIcon: InkWell(
-              onTap: _togglePasswordView,
-              child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
-          hintText: "Password",
-          hintStyle: TextStyle(color: AppColors.hintStyleColour),
-        ),
-      ),
-    );
-  }
-
   Widget _buildForgetPasswordButton() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextButton(
           onPressed: () {},
-          child: Text('Forgot Password?'),
+          child: Text(
+            'Forgot Password?',
+            style: TextStyle(
+              //importing the white text color
+              color: AppColors.whiteTextColor,
+              fontSize: 14,
+            ),
+          ),
         ),
       ],
     );
@@ -218,12 +194,18 @@ class _LoginState extends State<Login> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                //importing the white boxDecoration colour
+                color: AppColors.boxDecorationWhite,
+              ),
+              borderRadius: BorderRadius.circular(0.05),
+            ),
             height: 45,
             width: 160,
             margin: EdgeInsets.only(bottom: 20),
             child: ElevatedButton(
                 onPressed: () {
-                  
                   signIn(emailController.text, passwordController.text);
                 },
                 child: Text(
@@ -238,39 +220,14 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Widget _buildSignInButton() {
-    return GestureDetector(
-        onTap: () => print("Sign In Pressed"),
-        child: RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: 'Already have an Account?',
-                style: TextStyle(
-                  //importing the black text colour
-                  color: AppColors.blackTextColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              TextSpan(
-                  text: ' Sign Up',
-                  style: TextStyle(
-                      color: Colors.lightBlue,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold)),
-            ],
-          ),
-        ));
-  }
-
   Widget _buildSignInButton2() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('Do Not Have An Account?',
             style: TextStyle(
-                //importing the black text color
-                color: AppColors.blackTextColor,
+                //importing the white text color
+                color: AppColors.whiteTextColor,
                 fontSize: 15,
                 fontWeight: FontWeight.bold)),
         TextButton(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:project_gift_me/styles/app_colors.dart';
 
-import 'main_page.dart';
+//import 'main_page.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

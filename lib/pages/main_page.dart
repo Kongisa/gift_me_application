@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/pages/navigation_drawer_widget.dart';
 import 'package:project_gift_me/routes/routes.dart';
@@ -11,24 +9,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentpos = 0;
-  final List<Widget> _pages = [];
-
-  Widget _buildLogo() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Welcome to Gift Me',
-          style: TextStyle(
-            //importing the white text color
-            color: AppColors.whiteTextColor,
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-        )
-      ],
-    );
-  }
+  //final List<Widget> _pages = [];
 
   Widget _buildContainer() {
     return Row(
@@ -113,246 +94,6 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget _buildItems2() {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(20),
-      ),
-      child: Container(
-        height: 150,
-        width: 350,
-        color: Colors.blue[300],
-        child: Row(
-          children: [
-            Icon(
-              Icons.image,
-              size: 150,
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    "Title:              ",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Description: ",
-                  style: TextStyle(fontSize: 15),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Quality:        ",
-                  style: TextStyle(fontSize: 15),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildItems3() {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(20),
-      ),
-      child: Container(
-        height: 150,
-        width: 350,
-        color: Colors.blue[300],
-        child: Row(
-          children: [
-            Icon(
-              Icons.image,
-              size: 150,
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    "Title:              ",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Description: ",
-                  style: TextStyle(fontSize: 15),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Quality:        ",
-                  style: TextStyle(fontSize: 15),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildItems4() {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(20),
-      ),
-      child: Container(
-        height: 150,
-        width: 350,
-        color: Colors.blue[300],
-        child: Row(
-          children: [
-            Icon(
-              Icons.image,
-              size: 150,
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    "Title:              ",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Description: ",
-                  style: TextStyle(fontSize: 15),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Quality:        ",
-                  style: TextStyle(fontSize: 15),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNavigation() {
-    return BottomNavigationBar(items: [
-      BottomNavigationBarItem(
-          icon: Icon(Icons.home), label: "Home", backgroundColor: Colors.blue)
-    ]);
-  }
-
-  Widget _buildItems5() {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(20),
-      ),
-      child: Container(
-        height: 150,
-        width: 350,
-        color: Colors.blue[300],
-        child: Row(
-          children: [
-            Icon(
-              Icons.image,
-              size: 150,
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    "Title:              ",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Description: ",
-                  style: TextStyle(fontSize: 15),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  "Quality:     ",
-                  style: TextStyle(fontSize: 15),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDrawer() {
-    return Scaffold(
-      drawer: NavigationDrawerWidget(),
-      appBar: AppBar(),
-    );
-  }
-
-  Widget _buildTopBar() {
-    return Row(
-      children: [
-        SizedBox(width: 8),
-        IconButton(
-          onPressed: () {
-            _buildDrawer();
-          },
-          splashColor: Colors.white,
-          icon: Icon(
-            Icons.menu,
-            size: 40,
-            color: Colors.white,
-          ),
-        ),
-        SizedBox(width: 80),
-        Text(
-          "Gift Me",
-          style: TextStyle(fontSize: 40, color: Colors.white),
-        ),
-        SizedBox(width: 80),
-        Icon(
-          Icons.settings,
-          color: Colors.white,
-          size: 40,
-        ),
-
-        // Text("Food Items", style: TextStyle(fontSize: 20, color: Colors.white),),
-        // Text("Other Items", style: TextStyle(fontSize: 20, color: Colors.white),)
-      ],
-    );
-  }
-
-  Widget _buildProfile() {
-    return Row(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 105,
-          ),
-          child: Container(
-            width: 180.0,
-            height: 140.0,
-            decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white,
-                  spreadRadius: 4,
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _buildSelectPage() {
     return Row(
       children: [
@@ -362,7 +103,7 @@ class _MainPageState extends State<MainPage> {
           style: TextStyle(color: Colors.white, fontSize: 25),
         ),
         SizedBox(width: 15),
-        FlatButton(
+        ElevatedButton(
             onPressed: () {
               Navigator.of(context).pushNamed(RouteManager.mainPage2);
             },
@@ -374,7 +115,8 @@ class _MainPageState extends State<MainPage> {
         Icon(
           Icons.sort,
           size: 20,
-          color: Colors.white,
+          //importing the white icon color
+          color: AppColors.whiteIconColor,
         )
       ],
     );
@@ -429,7 +171,7 @@ class _MainPageState extends State<MainPage> {
                     padding: const EdgeInsets.only(left: 280),
                     child: Row(
                       children: [
-                        FlatButton(
+                        ElevatedButton(
                             onPressed: () {
                               Navigator.of(context)
                                   .pushNamed(RouteManager.requestMain);
@@ -476,26 +218,16 @@ class _MainPageState extends State<MainPage> {
                   ],
                   onTap: (index) {
                     setState(() {
-
-                      if(index == 0)
-                      {
+                      if (index == 0) {
+                        Navigator.of(context).pushNamed(RouteManager.mainPage);
+                      } else if (index == 2) {
                         Navigator.of(context)
-                                  .pushNamed(RouteManager.mainPage);
-                      }
-                      else if(index == 2)
-                      {
+                            .pushNamed(RouteManager.donationOptions);
+                      } else if (index == 3) {
+                        Navigator.of(context).pushNamed(RouteManager.profile);
+                      } else {
                         Navigator.of(context)
-                                  .pushNamed(RouteManager.donationOptions);
-                      }
-                      else if(index == 3)
-                      {
-                        Navigator.of(context)
-                                  .pushNamed(RouteManager.profile);
-                      }
-                      else{
-                        Navigator.of(context)
-                                  .pushNamed(RouteManager.requestMain2);
-
+                            .pushNamed(RouteManager.requestMain2);
                       }
                       _currentpos = index;
                     });

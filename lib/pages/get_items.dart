@@ -80,32 +80,13 @@ class _GetItemState extends State<GetItem> {
   Widget _buildRating() {
     return Row(
       children: [
-        //The icons all import the yellowIconsColor
-        Icon(
-          Icons.star_outline,
-          size: 30,
-          color: AppColors.yellowIconsColor,
-        ),
-        Icon(
-          Icons.star_outline,
-          size: 30,
-          color: AppColors.yellowIconsColor,
-        ),
-        Icon(
-          Icons.star_outline,
-          size: 30,
-          color: AppColors.yellowIconsColor,
-        ),
-        Icon(
-          Icons.star_outline,
-          size: 30,
-          color: AppColors.yellowIconsColor,
-        ),
-        Icon(
-          Icons.star_outline,
-          size: 30,
-          color: AppColors.yellowIconsColor,
-        ),
+        //The buildRatingIcon contains the star icon, and text and they all
+        //have a size of 30
+        buildRatingIcon(),
+        buildRatingIcon(),
+        buildRatingIcon(),
+        buildRatingIcon(),
+        buildRatingIcon(),
       ],
     );
   }
@@ -129,7 +110,8 @@ class _GetItemState extends State<GetItem> {
                   offset: Offset(0.0, 5), // changes position of shadow
                 ),
               ],
-              color: Colors.white,
+              //importing the BoxDecoration of white
+              color: AppColors.boxDecorationWhite,
               borderRadius: BorderRadius.all(
                 Radius.circular(20),
               ),
@@ -194,6 +176,22 @@ class _GetItemState extends State<GetItem> {
           ],
         ),
       ),
+    );
+  }
+}
+
+//The buildRating widget used in the _buildRating widget
+class buildRatingIcon extends StatelessWidget {
+  const buildRatingIcon({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      Icons.star_outline,
+      size: 30,
+      color: AppColors.yellowIconsColor,
     );
   }
 }

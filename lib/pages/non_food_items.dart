@@ -17,63 +17,6 @@ class NonFoodItemsState extends State<NonFoodItems> {
 
   final items = ['Excellent', 'Very Good ', 'Good', 'Bad', 'Very Bad'];
 
-  Widget _buildLogo() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 800),
-          child: Text(
-            'Food Items',
-            style: TextStyle(
-              //importing the white text color
-              color: AppColors.whiteTextColor,
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget _buildContainer2() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            width: MediaQuery.of(context).size.width * 0.8,
-            decoration: BoxDecoration(color: Colors.white),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Details",
-                      style: TextStyle(
-                        fontSize: 25,
-                      )),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [],
-                  ),
-                  SizedBox(height: 30),
-                  _buildNamer(),
-                  SizedBox(height: 20),
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
   Widget _buildContainer() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -175,41 +118,8 @@ class NonFoodItemsState extends State<NonFoodItems> {
     );
   }
 
-  Widget _buildNamer4() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value) {
-          setState(() {
-            email = value;
-          });
-        },
-        decoration: InputDecoration(
-            //border: InputBorder.none,
-            contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.hourglass_bottom, color: Color(0xFF1F68AC)),
-            hintText: "Use Before",
-            hintStyle: TextStyle(color: Colors.black38)),
-      ),
-    );
-  }
-
   Widget _buildImage() {
     return Icon(Icons.add_a_photo_rounded, size: 80);
-  }
-
-  Widget _buildItems() {
-    return DropdownButton<String>(
-      value: value,
-      isExpanded: true,
-      items: items.map(buildMenuItem).toList(),
-      onChanged: (value) {
-        setState(() {
-          this.value = value;
-        });
-      },
-    );
   }
 
   Widget _buildRating() {

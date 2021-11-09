@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/styles/app_colors.dart';
 
 class Donor extends StatefulWidget {
   _DonorState createState() => _DonorState();
@@ -18,24 +19,34 @@ class _DonorState extends State<Donor> {
             height: 150,
             width: 150,
             decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(3.0, 25), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                border: Border.all(color: Colors.blue, width: 2),
-                borderRadius: BorderRadius.all(Radius.circular(500))),
+              boxShadow: [
+                BoxShadow(
+                  //This boxShadow uses the Blue color with opacity
+                  color: AppColors.boxShadowColourBlueWithOpacity,
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(3.0, 25), // changes position of shadow
+                ),
+              ],
+              //importing the white BoxDecoration
+              color: AppColors.boxDecorationWhite,
+              border: Border.all(
+                color: Colors.blue,
+                width: 2,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(500),
+              ),
+            ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                      padding: EdgeInsets.only(top: 25), child: _buildImage()),
+                    padding: EdgeInsets.only(top: 25),
+                    child: _buildImage(),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [],
@@ -54,76 +65,38 @@ class _DonorState extends State<Donor> {
         width: 100, height: 100, fit: BoxFit.fill);
   }
 
-  Widget _buildContainment2() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-       InkWell(
-         child:  Padding(
-          padding: const EdgeInsets.only(top: 180),
-          child: Container(
-            height: 150,
-            width: 150,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Image.asset('assets/images/food.jpg')],
-            ),
-          ),
-        ),
-        onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.foodItems);
-              }
-        
-       )
-      ],
-    );
-  }
-
   Widget _buildContainment4() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-       InkWell(
-         child:  Padding(
-          padding: const EdgeInsets.only(top: 180),
-          child: Container(
-            height: 150,
-            width: 150,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Image.asset('assets/images/food.jpg')],
+        InkWell(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 180),
+              child: Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        //importing the blue BoxShadow with opacity
+                        color: AppColors.boxShadowColourBlueWithOpacity,
+                        spreadRadius: 2,
+                        blurRadius: 7,
+                        offset: Offset(0.0, 5), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Image.asset('assets/images/food.jpg')],
+                ),
+              ),
             ),
-          ),
-        ),
-        onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.foodItems);
-              }
-        
-       )
+            onTap: () {
+              Navigator.of(context).pushNamed(RouteManager.foodItems);
+            })
       ],
     );
   }
@@ -134,40 +107,35 @@ class _DonorState extends State<Donor> {
       children: [
         InkWell(
             child: Padding(
-          padding: const EdgeInsets.only(top: 180),
-          child: Container(
-            height: 150,
-            width: 150,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 7,
-                    offset: Offset(0.0, 5), // changes position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Image.asset('assets/images/clothes.png')],
+              padding: const EdgeInsets.only(top: 180),
+              child: Container(
+                height: 150,
+                width: 150,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        //importing the blue BoxShadow with opacity
+                        color: AppColors.boxShadowColourBlueWithOpacity,
+                        spreadRadius: 2,
+                        blurRadius: 7,
+                        offset: Offset(0.0, 5), // changes position of shadow
+                      ),
+                    ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Image.asset('assets/images/clothes.png')],
+                ),
+              ),
             ),
-          ),
-          
-        ),
-        onTap: () {
-                Navigator.of(context).pushNamed(RouteManager.nonFoodItems);
-              }),
-
+            onTap: () {
+              Navigator.of(context).pushNamed(RouteManager.nonFoodItems);
+            }),
       ],
     );
   }
-
-  
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +148,8 @@ class _DonorState extends State<Donor> {
               width: MediaQuery.of(context).size.width,
               child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
+                      //importing the blue boxdecoration color
+                      color: AppColors.boxDecorationBlue,
                       borderRadius: BorderRadius.only(
                         bottomLeft: const Radius.circular(40),
                         bottomRight: const Radius.circular(40),
@@ -190,7 +159,11 @@ class _DonorState extends State<Donor> {
                 padding: EdgeInsets.only(left: 160, top: 20),
                 child: Text(
                   'Donor',
-                  style: TextStyle(color: Colors.white, fontSize: 35),
+                  style: TextStyle(
+                    //importing the white text color
+                    color: AppColors.whiteTextColor,
+                    fontSize: 35,
+                  ),
                 )),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
