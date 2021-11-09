@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_gift_me/classes/login.dart';
 import 'package:project_gift_me/pages/donation_options.dart';
 import 'package:project_gift_me/pages/donor.dart';
 import 'package:project_gift_me/pages/get_item2.dart';
@@ -22,7 +23,7 @@ import 'package:project_gift_me/pages/splashScreen4.dart';
 
 class RouteManager {
   static const String splashScreen = '/splashScreen';
-  static const String loginPage = '/';
+  static const String loginScreen = '/';
   static const String mainPage = '/mainPage';
   static const String splashScreen2 = '/splashScreen2';
   static const String splashScreen3 = '/splashScreen3';
@@ -65,9 +66,9 @@ class RouteManager {
           builder: (context) => SplashScreen4(),
         );
 
-      case loginPage:
+      case loginScreen:
         return MaterialPageRoute(
-          builder: (context) => Login(),
+          builder: (context) => LoginScreen(),
         );
 
       case mainPage:

@@ -10,10 +10,10 @@ class NonFoodItems extends StatefulWidget {
 class NonFoodItemsState extends State<NonFoodItems> {
   bool isRememberMe = false;
   bool isHiddenPassword = true;
-  late String email, password;
+  String email, password;
 
-  late String valueChoose;
-  String? value;
+  String valueChoose;
+  String value;
 
   final items = ['Excellent', 'Very Good ', 'Good', 'Bad', 'Very Bad'];
 
@@ -66,7 +66,7 @@ class NonFoodItemsState extends State<NonFoodItems> {
         decoration: InputDecoration(
           //border: InputBorder.none,
           contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.keyboard, color: Color(0xFF1F68AC)),
+          prefixIcon: Icon(Icons.keyboard, color: Colors.blue[300]),
           hintText: "Item Name",
           //importing the black hintStyle
           hintStyle: TextStyle(color: AppColors.hintStyleColour),
@@ -88,7 +88,7 @@ class NonFoodItemsState extends State<NonFoodItems> {
         decoration: InputDecoration(
           //border: InputBorder.none,
           contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.description, color: Color(0xFF1F68AC)),
+          prefixIcon: Icon(Icons.description, color: Colors.blue[300]),
           hintText: "Description",
           //importing the black hintStyle colour
           hintStyle: TextStyle(color: AppColors.hintStyleColour),
@@ -110,7 +110,7 @@ class NonFoodItemsState extends State<NonFoodItems> {
         decoration: InputDecoration(
             //border: InputBorder.none,
             contentPadding: EdgeInsets.only(top: 14),
-            prefixIcon: Icon(Icons.lock_clock, color: Color(0xFF1F68AC)),
+            prefixIcon: Icon(Icons.lock_clock,  color: Colors.blue[300]),
             hintText: "Drop Off Time",
             //importing the black hintStyleColor
             hintStyle: TextStyle(color: AppColors.hintStyleColour)),
@@ -231,7 +231,7 @@ class NonFoodItemsState extends State<NonFoodItems> {
         activeColor: AppColors.activeStatusColBlue,
         onChanged: (value) {
           setState(() {
-            isRememberMe = value!;
+            isRememberMe = value;
           });
         },
       ),

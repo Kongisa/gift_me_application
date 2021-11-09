@@ -82,11 +82,11 @@ class _GetItemState extends State<GetItem> {
       children: [
         //The buildRatingIcon contains the star icon, and text and they all
         //have a size of 30
-        buildRatingIcon(),
-        buildRatingIcon(),
-        buildRatingIcon(),
-        buildRatingIcon(),
-        buildRatingIcon(),
+        BuildRatingIcon(),
+        BuildRatingIcon(),
+        BuildRatingIcon(),
+        BuildRatingIcon(),
+        BuildRatingIcon(),
       ],
     );
   }
@@ -181,9 +181,9 @@ class _GetItemState extends State<GetItem> {
 }
 
 //The buildRating widget used in the _buildRating widget
-class buildRatingIcon extends StatelessWidget {
-  const buildRatingIcon({
-    Key? key,
+class BuildRatingIcon extends StatelessWidget {
+  const BuildRatingIcon({
+    Key key,
   }) : super(key: key);
 
   @override

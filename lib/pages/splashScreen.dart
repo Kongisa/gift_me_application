@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:project_gift_me/pages/login.dart';
+import 'package:project_gift_me/pages/main_page.dart';
 
 import 'package:project_gift_me/styles/app_colors.dart';
 
@@ -26,7 +28,7 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => MainPage()));
+        context, MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 
   @override

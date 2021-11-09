@@ -54,8 +54,8 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
   }
 
   buildMenuItem({
-    required String text,
-    required IconData icon,
+     String text,
+    IconData icon,
   }) {
     final color = Colors.white;
 
@@ -74,9 +74,9 @@ class _NavigationDrawerWidgetState extends State<NavigationDrawerWidget> {
   }
 
   Widget buildHeader({
-    required String name,
-    required String email,
-    required VoidCallback onClicked,
+     String name,
+    String email,
+    VoidCallback onClicked,
     final urlImage =
         'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F211677%2Fimage_icon&psig=AOvVaw1iX_3EKxu8_hxD-qZl1UO9&ust=1634676426089000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCJDpza_q1PMCFQAAAAAdAAAAABAD',
     final assetsImage = 'assets/images/image.png',

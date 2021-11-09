@@ -1,63 +1,40 @@
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project_gift_me/routes/routes.dart';
+import 'package:project_gift_me/pages/login.dart';
+import 'package:project_gift_me/pages/main_page.dart';
 import 'package:project_gift_me/styles/app_colors.dart';
 
 class SignUp extends StatefulWidget {
-  @override
+
   _SignUpState createState() => _SignUpState();
 }
 
-class _SignUpState extends State<SignUp> {
-  bool isRememberMe = false;
-  bool isHiddenPassword = true;
-  late String email, password;
+final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+String p =
+    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-  Widget _buildContainer() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
-          ),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.6,
-            width: MediaQuery.of(context).size.width * 0.8,
-            //importing the white BoxDecoration
-            decoration: BoxDecoration(color: AppColors.boxDecorationWhite),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("Details",
-                      style: TextStyle(
-                        fontSize: 25,
-                      )),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [],
-                  ),
-                  SizedBox(height: 30),
-                  _buildNamer(),
-                  SizedBox(height: 20),
-                  _buildSurname(),
-                  SizedBox(height: 20),
-                  _buildGender(),
-                  _buildDivider(),
-                  SizedBox(height: 20),
-                  _buildEmail(),
-                  SizedBox(height: 20),
-                  _buildPassworder(),
-                  SizedBox(height: 20),
-                  _buildPassworder2(),
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
-    );
+    RegExp regExp = new RegExp(p);
+
+class _SignUpState extends State<SignUp> {
+
+  String _email;
+  String _password;
+
+  bool obserText = true;
+
+  void validation() {
+
+    final FormState _form = _formKey.currentState;
+
+    if(_form.validate())
+    {
+      print("Yes");
+    }
+    else
+    {
+      print("No");
+    }
   }
 
   Widget _buildLogo() {
@@ -82,243 +59,156 @@ class _SignUpState extends State<SignUp> {
         width: 180.0, height: 140.0, child: Icon(Icons.add_a_photo, size: 80));
   }
 
-  Widget _buildNamer() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value) {
-          setState(() {
-            email = value;
-          });
-        },
-        decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
-          hintText: "Name",
-          //importing the black hintStyle color
-          hintStyle: TextStyle(color: AppColors.hintStyleColour),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSurname() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value) {
-          setState(() {
-            email = value;
-          });
-        },
-        decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.person, color: Color(0xFF1F68AC)),
-          hintText: "Surname",
-          //importing the black hintStyle color
-          hintStyle: TextStyle(color: AppColors.hintStyleColour),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildEmail() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value) {
-          setState(() {
-            email = value;
-          });
-        },
-        decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.email, color: Color(0xFF1F68AC)),
-          hintText: "Email",
-          //imports the black hintStyle color
-          hintStyle: TextStyle(color: AppColors.hintStyleColour),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildGender() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildContainer() {
+    
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: EdgeInsets.only(left: 130),
-          child: Text(
-            'Gender',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 16,
-            ),
+        ClipRRect(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
           ),
-        ),
-        SizedBox(height: 10),
-        Row(
-          children: [
-            Transform.scale(
-              scale: 1.0,
-              child: Theme(
-                  data: ThemeData(unselectedWidgetColor: Colors.blue),
-                  child: Checkbox(
-                    value: isRememberMe,
-                    //import a check colour of white
-                    checkColor: AppColors.checkColorWhite,
-                    //import an active status colour of blue
-                    activeColor: AppColors.activeStatusColBlue,
-                    onChanged: (value) {
-                      setState(() {
-                        isRememberMe = value!;
-                      });
-                    },
-                  )),
+          child: Form(
+            key: _formKey,
+                      child: Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width * 0.8,
+              decoration: BoxDecoration(
+                //this BoxDecoration imports the white color
+                color: AppColors.boxDecorationWhite,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                
+                children: [
+                   Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              validator: (value) {
+                if(value == '')
+                {
+                  return 'Please Fill Email';
+
+                }
+                else if(!regExp.hasMatch(value)){
+
+                  return 'Email Is Invalid';
+
+                }
+                else
+                {
+                  return "";
+                }
+                
+
+
+              },
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                 border: OutlineInputBorder(),
+                hintText: 'Email',
+                prefixIcon: Icon(Icons.email),
+               
+              ),
+              onChanged: (value) {
+                setState(() {
+                  _email = value.trim();
+                });
+              },
             ),
-            Icon(Icons.male, size: 30),
-            SizedBox(width: 170),
-            Transform.scale(
-              scale: 1.0,
-              child: Theme(
-                data: ThemeData(unselectedWidgetColor: Colors.blue),
-                child: Checkbox(
-                  value: isRememberMe,
-                  //imports a check colour of white
-                  checkColor: AppColors.checkColorWhite,
-                  //imports an active sttaus color of blue
-                  activeColor: AppColors.activeStatusColBlue,
-                  onChanged: (value) {
+        ),
+        Padding(
+        
+            padding: const EdgeInsets.all(8.0),
+            child: TextFormField(
+              validator: (value) {
+                if(value == '')
+                {
+                  return 'Please Fill Password';
+
+                }
+                else if(value.length < 6){
+
+                  return 'Email Is Invalid';
+
+                }
+                else
+                {
+                  return "";
+                }
+
+                
+              },
+              obscureText: obserText,
+               decoration: InputDecoration(
+                 border: OutlineInputBorder(),
+                hintText: 'Password',
+                prefixIcon: Icon(Icons.lock),
+                suffixIcon: GestureDetector(
+                  onTap: () {
+
                     setState(() {
-                      isRememberMe = value!;
+                      obserText = !obserText;
                     });
+                    FocusScope.of(context).unfocus();
                   },
-                ),
+                  child: Icon(Icons.visibility, color: Colors.black),
+                ) 
+              ),
+              onChanged: (value) {
+                setState(() {
+                  _password = value.trim();
+                });
+              },
+            ),
+        ),
+                  RaisedButton(
+                color: Theme.of(context).accentColor,
+                child: Text('Sign Up'),
+                onPressed: () {
+                  validation();
+                  auth.createUserWithEmailAndPassword(email: _email, password: _password);
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MainPage()));
+
+              }),
+               Row(
+                  children: [
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Text("Do Not Have An Account?"),
+                        ),
+                        
+                      ],
+                    ),
+                    FlatButton(
+                            onPressed: () {
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginScreen()));
+                            },
+                            child: Text('Sign In'))
+                  ],
+                )
+                  
+                ],
               ),
             ),
-            Icon(Icons.female, size: 30),
-          ],
+          ),
         )
       ],
     );
   }
 
-  Widget _buildPassworder() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
-        onChanged: (value) {
-          setState(() {
-            password = value;
-          });
-        },
-        decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
-          suffixIcon: InkWell(
-              onTap: _togglePasswordView,
-              child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
-          hintText: "Password",
-          //imports a black hintStyle color
-          hintStyle: TextStyle(color: AppColors.hintStyleColour),
-        ),
-      ),
-    );
-  }
+  
 
-  Widget _buildPassworder2() {
-    return Padding(
-      padding: EdgeInsets.all(8),
-      child: TextFormField(
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
-        onChanged: (value) {
-          setState(() {
-            password = value;
-          });
-        },
-        decoration: InputDecoration(
-          //border: InputBorder.none,
-          contentPadding: EdgeInsets.only(top: 14),
-          prefixIcon: Icon(Icons.lock, color: Color(0xFF1F68AC)),
-          suffixIcon: InkWell(
-              onTap: _togglePasswordView,
-              child: Icon(Icons.visibility, color: Color(0xFF1F68AC))),
-          hintText: "Password Confirm",
-          //imports a hintStyle colour of black
-          hintStyle: TextStyle(color: AppColors.hintStyleColour),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLoginButton() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-            height: 45,
-            width: 160,
-            margin: EdgeInsets.only(bottom: 20),
-            child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(RouteManager.loginPage);
-                },
-                child: Text(
-                  'Login',
-                  style: TextStyle(color: Colors.white, letterSpacing: 1.5),
-                )))
-      ],
-    );
-  }
-
-  Widget _buildSignInButton() {
-    return GestureDetector(
-        onTap: () => print("Sign In Pressed"),
-        child: RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: 'Already have an Account?',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              TextSpan(
-                  text: ' Sign In',
-                  style: TextStyle(
-                      color: Colors.lightBlue,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold)),
-            ],
-          ),
-        ));
-  }
-
-  Widget _buildDivider() {
-    return Divider(
-      color: Colors.grey,
-      thickness: 1.2,
-      indent: 5,
-      endIndent: 5,
-    );
-  }
-
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -341,18 +231,11 @@ class _SignUpState extends State<SignUp> {
               SizedBox(height: 10),
               _buildContainer(),
               SizedBox(height: 20),
-              _buildLoginButton(),
-              _buildSignInButton()
+             
             ],
           )
         ],
       ),
     ));
-  }
-
-  void _togglePasswordView() {
-    isHiddenPassword = !isHiddenPassword;
-
-    setState(() {});
   }
 }
