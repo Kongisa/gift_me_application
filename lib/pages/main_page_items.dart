@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/pages/donation_options.dart';
 import 'package:project_gift_me/pages/navigation_drawer_widget.dart';
-//import 'package:project_gift_me/pages/request_main.dart';
-//import 'package:project_gift_me/routes/routes.dart';
 import 'package:project_gift_me/styles/app_colors.dart';
 
 class MainPage extends StatefulWidget {

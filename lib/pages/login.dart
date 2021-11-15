@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project_gift_me/pages/main_page.dart';
@@ -13,27 +12,22 @@ final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 String p =
     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-     RegExp regExp = new RegExp(p);
+RegExp regExp = new RegExp(p);
 
 class _LoginScreenState extends State<LoginScreen> {
   String _email;
   String _password;
 
   void validation() {
-
     final FormState _form = _formKey.currentState;
 
-
-
-    if(_form.validate())
-    {
+    if (_form.validate()) {
       print("Yes");
-    }
-    else
-    {
+    } else {
       print("No");
     }
   }
+
   Widget _buildLogo() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -51,10 +45,10 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _buildProfile() {
-    return Container(
-        width: 180.0, height: 140.0, child: Icon(Icons.add_a_photo, size: 80));
-  }
+  // Widget _buildProfile() {
+  //   return Container(
+  //       width: 180.0, height: 140.0, child: Icon(Icons.add_a_photo, size: 80));
+  // }
 
   Widget _buildContainer() {
     return Row(
@@ -65,8 +59,8 @@ class _LoginScreenState extends State<LoginScreen> {
             Radius.circular(20),
           ),
           child: Form(
-             key: _formKey,
-                      child: Container(
+            key: _formKey,
+            child: Container(
               height: MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.width * 0.8,
               decoration: BoxDecoration(
@@ -75,87 +69,69 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                validator: (value) {
-                  if(value == '')
-                  {
-                    return 'Please Fill Email';
-
-                  }
-                  else if(!regExp.hasMatch(value)){
-
-                    return 'Email Is Invalid';
-
-                  }
-                  else
-                  {
-                    return "";
-                  }
-                  
-
-
-                },
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                   border: OutlineInputBorder(),
-                  hintText: 'Email',
-                  prefixIcon: Icon(Icons.email),
-                 
-                ),
-                onChanged: (value) {
-                  setState(() {
-                    _email = value.trim();
-                  });
-                },
-              ),
+                      validator: (value) {
+                        if (value == '') {
+                          return 'Please Fill Email';
+                        } else if (!regExp.hasMatch(value)) {
+                          return 'Email Is Invalid';
+                        } else {
+                          return "";
+                        }
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'email@example.com',
+                        prefixIcon: Icon(Icons.email),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          _email = value.trim();
+                        });
+                      },
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                validator: (value) {
-                  if(value == '')
-                  {
-                    return 'Please Fill Password';
-
-                  }
-                  else if(value.length < 6){
-
-                    return 'Email Is Invalid';
-
-                  }
-                  else
-                  {
-                    return "";
-                  }
-
-                  
-                },
-                obscureText: true,
-                 decoration: InputDecoration(
-                   border: OutlineInputBorder(),
-                  hintText: 'Password',
-                  prefixIcon: Icon(Icons.lock),
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      FocusScope.of(context).unfocus();
-                    },
-                    child: Icon(Icons.visibility, color: Colors.black),
-                  ) 
-                ),
-                onChanged: (value) {
-                  setState(() {
-                    _password = value.trim();
-                  });
-                },
-              ),
+                      validator: (value) {
+                        if (value == '') {
+                          return 'Please Fill Password';
+                        } else if (value.length < 6) {
+                          return 'Email Is Invalid';
+                        } else {
+                          return "";
+                        }
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Password',
+                          prefixIcon: Icon(Icons.lock),
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              FocusScope.of(context).unfocus();
+                            },
+                            child: Icon(Icons.visibility, color: Colors.black),
+                          )),
+                      onChanged: (value) {
+                        setState(() {
+                          _password = value.trim();
+                        });
+                      },
+                    ),
                   ),
-                  RaisedButton(
-                      color: Colors.white,
-                      child: Text('Sign In'),
+                  ElevatedButton(
+                      //color: Colors.white,
+                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                      child: Text(
+                        'Sign In',
+                        style: TextStyle(color: AppColors.blackTextColor),
+                      ),
                       onPressed: () {
                         validation();
                         auth.signInWithEmailAndPassword(
@@ -171,17 +147,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.only(left: 20),
                             child: Text("Do Not Have An Account?"),
                           ),
-                          
                         ],
                       ),
-                      FlatButton(
-                              onPressed: () {
-                                
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) => SignUp()));
-                              },
-                              child: Text('Sign Up'))
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) => SignUp()));
+                        },
+                        child: Text('Sign Up',
+                            style: TextStyle(color: AppColors.blackTextColor)),
+                      )
                     ],
                   )
                 ],
@@ -206,7 +182,8 @@ class _LoginScreenState extends State<LoginScreen> {
             width: MediaQuery.of(context).size.width,
             child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.blue,
+                    //importing the blue boxDecoration
+                    color: AppColors.boxDecorationBlue,
                     borderRadius: BorderRadius.only(
                       bottomLeft: const Radius.circular(40),
                       bottomRight: const Radius.circular(40),

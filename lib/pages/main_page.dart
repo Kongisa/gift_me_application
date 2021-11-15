@@ -191,7 +191,8 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 730),
+                //I changed this padding
+                padding: const EdgeInsets.only(top: 630),
                 child: BottomNavigationBar(
                   currentIndex: _currentpos,
                   items: [
